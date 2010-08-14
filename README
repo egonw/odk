@@ -1,0 +1,9 @@
+EXPERIMENTAL
+
+Experimental branch of the CDK (http://cdk.sf.net/) that changes the way molecules are
+represented to the core.
+
+However, compatibility with the CDK is maintained as much as possible, to allow to
+reuse of CDK as much as possible.
+
+Egon Willighagen
