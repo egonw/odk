@@ -1,6 +1,4 @@
-/* $Revision: 7636 $ $Author: ospjuth $ $Date: 2007-01-04 17:46:10 +0000 (Thu, 04 Jan 2007) $
- * 
- * Copyright (C) 2008  Egon Willighagen <egonw@users.sf.net>
+/* Copyright (C) 2010  Egon Willighagen <egonw@users.sf.net>
  *
  * Contact: cdk-devel@lists.sourceforge.net
  *
@@ -18,22 +16,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-package net.launchpad.code.odk.test.modulesuites;
+package com.github.egonw.odk.modulesuites;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-/**
- * TestSuite that runs all the sample tests for the CDK module interfaces.
- *
- * @cdk.module test-interfaces
- */
-public class MinterfacesTests {
+import com.github.egonw.odk.model.MoleculeTest;
 
-    public static Test suite () {
-        TestSuite suite= new TestSuite("TestSuite for interface module");
-
-        return suite;
-    }
-
-}
+@RunWith(value=Suite.class)
+@SuiteClasses(value={
+	MoleculeTest.class
+})
+public class MinterfacesTests {}
