@@ -4,7 +4,7 @@ public interface IOrbital {
 
 	public IOrbitalType getOrbitalType();
 	public IAtom getAtom();
-	public IBond getBond();
+	public IOverlap getOverlap();
 	public short getElectronCount();
 	
 }

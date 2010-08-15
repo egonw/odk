@@ -46,7 +46,7 @@ public class Atom implements IAtom {
 	public IOrbital getFreeOrbital(IOrbitalType type) {
 		for (IOrbital orbital : this.orbitals) {
 			if (orbital.getOrbitalType() == type &&
-				orbital.getBond() == null) {
+				orbital.getOverlap() == null) {
 				return orbital;
 			}
 		}

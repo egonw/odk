@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.egonw.odk.interfaces.IAtom;
-import com.github.egonw.odk.interfaces.IBond;
+import com.github.egonw.odk.interfaces.IOverlap;
 import com.github.egonw.odk.interfaces.IOrbital;
 
 public class AtomProperties {
@@ -19,14 +19,14 @@ public class AtomProperties {
 		return count;
 	}
 
-	public static List<IBond> getBonds(IAtom atom) {
-		List<IBond> bonds = new ArrayList<IBond>();
+	public static List<IOverlap> getOverlaps(IAtom atom) {
+		List<IOverlap> overlaps = new ArrayList<IOverlap>();
 		for (IOrbital orbital : atom.getOrbitals()) {
-			if (orbital.getBond() != null) {
-				bonds.add(orbital.getBond());
+			if (orbital.getOverlap() != null) {
+				overlaps.add(orbital.getOverlap());
 			}
 		}
-		return bonds;
+		return overlaps;
 	}
 
 }

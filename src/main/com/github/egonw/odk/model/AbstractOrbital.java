@@ -1,13 +1,13 @@
 package com.github.egonw.odk.model;
 
 import com.github.egonw.odk.interfaces.IAtom;
-import com.github.egonw.odk.interfaces.IBond;
+import com.github.egonw.odk.interfaces.IOverlap;
 import com.github.egonw.odk.interfaces.IOrbital;
 
 public abstract class AbstractOrbital implements IOrbital {
 
 	private IAtom atom;
-	private IBond bond;
+	private IOverlap overlap;
 	private short electronCount;
 	
 	@Override
@@ -16,8 +16,8 @@ public abstract class AbstractOrbital implements IOrbital {
 	}
 
 	@Override
-	public IBond getBond() {
-		return this.bond;
+	public IOverlap getOverlap() {
+		return this.overlap;
 	}
 
 	@Override

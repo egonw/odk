@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.egonw.odk.interfaces.IAtom;
-import com.github.egonw.odk.interfaces.IBond;
+import com.github.egonw.odk.interfaces.IOverlap;
 import com.github.egonw.odk.interfaces.IMolecule;
 
 public class Molecule implements IMolecule {
 
 	protected List<IAtom> atoms;
-	protected List<IBond> bonds;
+	protected List<IOverlap> overlaps;
 
 	protected Molecule() {
 		atoms = new ArrayList<IAtom>();
-		bonds = new ArrayList<IBond>();
+		overlaps = new ArrayList<IOverlap>();
 	}
 
 	@Override
@@ -25,10 +25,10 @@ public class Molecule implements IMolecule {
 	}
 
 	@Override
-	public List<IBond> getBonds() {
-		List<IBond> bonds = new ArrayList<IBond>();
-		bonds.addAll(this.bonds);
-		return bonds;
+	public List<IOverlap> getOverlaps() {
+		List<IOverlap> overlaps = new ArrayList<IOverlap>();
+		overlaps.addAll(this.overlaps);
+		return overlaps;
 	}
 
 }

@@ -2,7 +2,7 @@ package com.github.egonw.odk.model;
 
 import com.github.egonw.odk.interfaces.IAtom;
 import com.github.egonw.odk.interfaces.IAtomType;
-import com.github.egonw.odk.interfaces.IBond;
+import com.github.egonw.odk.interfaces.IOverlap;
 import com.github.egonw.odk.interfaces.IFactory;
 import com.github.egonw.odk.interfaces.IMolecule;
 import com.github.egonw.odk.interfaces.IOrbital;
@@ -29,10 +29,10 @@ public class MoleculeFactory implements IFactory<IMolecule> {
 		return immutable;
 	}
 
-	public IBond bind(IOrbital... orbitals) {
-		Bond bond = new Bond(orbitals);
-		immutable.bonds.add(bond);
-		return bond;
+	public IOverlap bind(IOrbital... orbitals) {
+		Overlap overlap = new Overlap(orbitals);
+		immutable.overlaps.add(overlap);
+		return overlap;
 	}
 
 }

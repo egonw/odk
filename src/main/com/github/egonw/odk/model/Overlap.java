@@ -3,20 +3,20 @@ package com.github.egonw.odk.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.egonw.odk.interfaces.IBond;
+import com.github.egonw.odk.interfaces.IOverlap;
 import com.github.egonw.odk.interfaces.IOrbital;
 
-public class Bond implements IBond {
+public class Overlap implements IOverlap {
 
 	protected List<IOrbital> orbitals;
 
-	protected Bond(IOrbital... orbitals) {
+	protected Overlap(IOrbital... orbitals) {
 		this.orbitals = new ArrayList<IOrbital>();
 		for (IOrbital orbital : orbitals) {
 			if (orbital == null)
 				throw new NullPointerException("Orbital cannot be null");
 			this.orbitals.add(orbital);
-			((Orbital)orbital).bond = this;
+			((Orbital)orbital).overlap = this;
 		}
 	}
 

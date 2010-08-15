@@ -47,18 +47,18 @@ public class MoleculeTest {
 	public void testMethaneProperties(IMolecule methane) {
 		List<IAtom> atoms = methane.getAtoms();
 		Assert.assertEquals(5, atoms.size());
-		Assert.assertEquals(4, methane.getBonds().size());
+		Assert.assertEquals(4, methane.getOverlaps().size());
 		for (IAtom atom : atoms) {
 			if (atom.getAtomType().getElement() == Carbon.getInstance()) {
 				Assert.assertEquals(
-					4, AtomProperties.getBonds(atom).size()
+					4, AtomProperties.getOverlaps(atom).size()
 				);
 				Assert.assertEquals(
 					4, AtomProperties.getElectronCount(atom)
 				);
 			} else if (atom.getAtomType().getElement() == Hydrogen.getInstance()) {
 				Assert.assertEquals(
-					1, AtomProperties.getBonds(atom).size()
+					1, AtomProperties.getOverlaps(atom).size()
 				);
 				Assert.assertEquals(
 					1, AtomProperties.getElectronCount(atom)
@@ -86,18 +86,18 @@ public class MoleculeTest {
 	public void testWaterProperties(IMolecule water) {
 		List<IAtom> atoms = water.getAtoms();
 		Assert.assertEquals(3, atoms.size());
-		Assert.assertEquals(2, water.getBonds().size());
+		Assert.assertEquals(2, water.getOverlaps().size());
 		for (IAtom atom : atoms) {
 			if (atom.getAtomType().getElement() == Oxygen.getInstance()) {
 				Assert.assertEquals(
-					2, AtomProperties.getBonds(atom).size()
+					2, AtomProperties.getOverlaps(atom).size()
 				);
 				Assert.assertEquals(
 					6, AtomProperties.getElectronCount(atom)
 				);
 			} else if (atom.getAtomType().getElement() == Hydrogen.getInstance()) {
 				Assert.assertEquals(
-					1, AtomProperties.getBonds(atom).size()
+					1, AtomProperties.getOverlaps(atom).size()
 				);
 				Assert.assertEquals(
 					1, AtomProperties.getElectronCount(atom)
