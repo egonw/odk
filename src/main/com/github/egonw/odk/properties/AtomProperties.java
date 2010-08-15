@@ -12,9 +12,7 @@ public class AtomProperties {
 
 	public static int getElectronCount(IAtom atom) {
 		int count = 0;
-		System.out.println(atom.getAtomType().getElement().getSymbol());
 		for (IAtomicOrbital orbital : atom.getOrbitals()) {
-			System.out.println("  " + orbital.getOrbitalType().getName());
 			count += orbital.getOrbitalType().getElectronCount();
 		}
 		return count;
