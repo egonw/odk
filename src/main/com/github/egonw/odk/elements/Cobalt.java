@@ -11,6 +11,7 @@ public final class Cobalt implements IElement {
 	private Cobalt() {};
 
 	public static IElement getInstance() {
+		if (Cobalt.instance == null)
 			Cobalt.instance = new Cobalt();
 		return Cobalt.instance;
 	}

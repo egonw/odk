@@ -11,6 +11,7 @@ public final class Titanium implements IElement {
 	private Titanium() {};
 
 	public static IElement getInstance() {
+		if (Titanium.instance == null)
 			Titanium.instance = new Titanium();
 		return Titanium.instance;
 	}

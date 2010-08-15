@@ -11,6 +11,7 @@ public final class Zirconium implements IElement {
 	private Zirconium() {};
 
 	public static IElement getInstance() {
+		if (Zirconium.instance == null)
 			Zirconium.instance = new Zirconium();
 		return Zirconium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Vanadium implements IElement {
 	private Vanadium() {};
 
 	public static IElement getInstance() {
+		if (Vanadium.instance == null)
 			Vanadium.instance = new Vanadium();
 		return Vanadium.instance;
 	}

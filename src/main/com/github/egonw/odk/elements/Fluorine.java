@@ -11,6 +11,7 @@ public final class Fluorine implements IElement {
 	private Fluorine() {};
 
 	public static IElement getInstance() {
+		if (Fluorine.instance == null)
 			Fluorine.instance = new Fluorine();
 		return Fluorine.instance;
 	}

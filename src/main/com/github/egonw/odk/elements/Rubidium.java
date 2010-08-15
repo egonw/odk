@@ -11,6 +11,7 @@ public final class Rubidium implements IElement {
 	private Rubidium() {};
 
 	public static IElement getInstance() {
+		if (Rubidium.instance == null)
 			Rubidium.instance = new Rubidium();
 		return Rubidium.instance;
 	}

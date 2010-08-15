@@ -11,6 +11,7 @@ public final class Rutherfordium implements IElement {
 	private Rutherfordium() {};
 
 	public static IElement getInstance() {
+		if (Rutherfordium.instance == null)
 			Rutherfordium.instance = new Rutherfordium();
 		return Rutherfordium.instance;
 	}

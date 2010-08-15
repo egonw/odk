@@ -11,6 +11,7 @@ public final class Cesium implements IElement {
 	private Cesium() {};
 
 	public static IElement getInstance() {
+		if (Cesium.instance == null)
 			Cesium.instance = new Cesium();
 		return Cesium.instance;
 	}

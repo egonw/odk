@@ -11,6 +11,7 @@ public final class Francium implements IElement {
 	private Francium() {};
 
 	public static IElement getInstance() {
+		if (Francium.instance == null)
 			Francium.instance = new Francium();
 		return Francium.instance;
 	}

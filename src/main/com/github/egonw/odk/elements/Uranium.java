@@ -11,6 +11,7 @@ public final class Uranium implements IElement {
 	private Uranium() {};
 
 	public static IElement getInstance() {
+		if (Uranium.instance == null)
 			Uranium.instance = new Uranium();
 		return Uranium.instance;
 	}

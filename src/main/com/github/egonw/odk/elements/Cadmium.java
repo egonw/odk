@@ -11,6 +11,7 @@ public final class Cadmium implements IElement {
 	private Cadmium() {};
 
 	public static IElement getInstance() {
+		if (Cadmium.instance == null)
 			Cadmium.instance = new Cadmium();
 		return Cadmium.instance;
 	}

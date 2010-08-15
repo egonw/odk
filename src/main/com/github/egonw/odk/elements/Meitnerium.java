@@ -11,6 +11,7 @@ public final class Meitnerium implements IElement {
 	private Meitnerium() {};
 
 	public static IElement getInstance() {
+		if (Meitnerium.instance == null)
 			Meitnerium.instance = new Meitnerium();
 		return Meitnerium.instance;
 	}

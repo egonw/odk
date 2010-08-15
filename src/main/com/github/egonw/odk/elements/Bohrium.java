@@ -11,6 +11,7 @@ public final class Bohrium implements IElement {
 	private Bohrium() {};
 
 	public static IElement getInstance() {
+		if (Bohrium.instance == null)
 			Bohrium.instance = new Bohrium();
 		return Bohrium.instance;
 	}

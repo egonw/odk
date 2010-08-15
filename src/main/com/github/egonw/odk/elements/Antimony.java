@@ -11,6 +11,7 @@ public final class Antimony implements IElement {
 	private Antimony() {};
 
 	public static IElement getInstance() {
+		if (Antimony.instance == null)
 			Antimony.instance = new Antimony();
 		return Antimony.instance;
 	}

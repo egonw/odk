@@ -11,6 +11,7 @@ public final class Ytterbium implements IElement {
 	private Ytterbium() {};
 
 	public static IElement getInstance() {
+		if (Ytterbium.instance == null)
 			Ytterbium.instance = new Ytterbium();
 		return Ytterbium.instance;
 	}

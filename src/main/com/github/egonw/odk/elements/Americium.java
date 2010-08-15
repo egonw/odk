@@ -11,6 +11,7 @@ public final class Americium implements IElement {
 	private Americium() {};
 
 	public static IElement getInstance() {
+		if (Americium.instance == null)
 			Americium.instance = new Americium();
 		return Americium.instance;
 	}

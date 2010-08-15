@@ -11,6 +11,7 @@ public final class Lawrencium implements IElement {
 	private Lawrencium() {};
 
 	public static IElement getInstance() {
+		if (Lawrencium.instance == null)
 			Lawrencium.instance = new Lawrencium();
 		return Lawrencium.instance;
 	}

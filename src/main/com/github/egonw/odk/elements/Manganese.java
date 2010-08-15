@@ -11,6 +11,7 @@ public final class Manganese implements IElement {
 	private Manganese() {};
 
 	public static IElement getInstance() {
+		if (Manganese.instance == null)
 			Manganese.instance = new Manganese();
 		return Manganese.instance;
 	}

@@ -11,6 +11,7 @@ public final class Carbon implements IElement {
 	private Carbon() {};
 
 	public static IElement getInstance() {
+		if (Carbon.instance == null)
 			Carbon.instance = new Carbon();
 		return Carbon.instance;
 	}

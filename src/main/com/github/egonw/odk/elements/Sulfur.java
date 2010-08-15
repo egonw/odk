@@ -11,6 +11,7 @@ public final class Sulfur implements IElement {
 	private Sulfur() {};
 
 	public static IElement getInstance() {
+		if (Sulfur.instance == null)
 			Sulfur.instance = new Sulfur();
 		return Sulfur.instance;
 	}

@@ -11,6 +11,7 @@ public final class Lanthanum implements IElement {
 	private Lanthanum() {};
 
 	public static IElement getInstance() {
+		if (Lanthanum.instance == null)
 			Lanthanum.instance = new Lanthanum();
 		return Lanthanum.instance;
 	}

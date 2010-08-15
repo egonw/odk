@@ -11,6 +11,7 @@ public final class Actinium implements IElement {
 	private Actinium() {};
 
 	public static IElement getInstance() {
+		if (Actinium.instance == null)
 			Actinium.instance = new Actinium();
 		return Actinium.instance;
 	}

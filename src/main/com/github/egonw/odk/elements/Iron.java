@@ -11,6 +11,7 @@ public final class Iron implements IElement {
 	private Iron() {};
 
 	public static IElement getInstance() {
+		if (Iron.instance == null)
 			Iron.instance = new Iron();
 		return Iron.instance;
 	}

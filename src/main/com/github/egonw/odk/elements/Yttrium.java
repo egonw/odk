@@ -11,6 +11,7 @@ public final class Yttrium implements IElement {
 	private Yttrium() {};
 
 	public static IElement getInstance() {
+		if (Yttrium.instance == null)
 			Yttrium.instance = new Yttrium();
 		return Yttrium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Erbium implements IElement {
 	private Erbium() {};
 
 	public static IElement getInstance() {
+		if (Erbium.instance == null)
 			Erbium.instance = new Erbium();
 		return Erbium.instance;
 	}

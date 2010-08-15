@@ -11,6 +11,7 @@ public final class Scandium implements IElement {
 	private Scandium() {};
 
 	public static IElement getInstance() {
+		if (Scandium.instance == null)
 			Scandium.instance = new Scandium();
 		return Scandium.instance;
 	}

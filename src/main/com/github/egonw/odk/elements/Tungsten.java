@@ -11,6 +11,7 @@ public final class Tungsten implements IElement {
 	private Tungsten() {};
 
 	public static IElement getInstance() {
+		if (Tungsten.instance == null)
 			Tungsten.instance = new Tungsten();
 		return Tungsten.instance;
 	}

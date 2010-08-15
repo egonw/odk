@@ -11,6 +11,7 @@ public final class Neptunium implements IElement {
 	private Neptunium() {};
 
 	public static IElement getInstance() {
+		if (Neptunium.instance == null)
 			Neptunium.instance = new Neptunium();
 		return Neptunium.instance;
 	}

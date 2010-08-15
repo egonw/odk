@@ -11,6 +11,7 @@ public final class Plutonium implements IElement {
 	private Plutonium() {};
 
 	public static IElement getInstance() {
+		if (Plutonium.instance == null)
 			Plutonium.instance = new Plutonium();
 		return Plutonium.instance;
 	}

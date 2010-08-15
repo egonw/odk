@@ -11,6 +11,7 @@ public final class Dysprosium implements IElement {
 	private Dysprosium() {};
 
 	public static IElement getInstance() {
+		if (Dysprosium.instance == null)
 			Dysprosium.instance = new Dysprosium();
 		return Dysprosium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Holmium implements IElement {
 	private Holmium() {};
 
 	public static IElement getInstance() {
+		if (Holmium.instance == null)
 			Holmium.instance = new Holmium();
 		return Holmium.instance;
 	}

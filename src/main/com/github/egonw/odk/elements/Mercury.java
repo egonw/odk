@@ -11,6 +11,7 @@ public final class Mercury implements IElement {
 	private Mercury() {};
 
 	public static IElement getInstance() {
+		if (Mercury.instance == null)
 			Mercury.instance = new Mercury();
 		return Mercury.instance;
 	}

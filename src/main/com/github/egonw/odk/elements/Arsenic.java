@@ -11,6 +11,7 @@ public final class Arsenic implements IElement {
 	private Arsenic() {};
 
 	public static IElement getInstance() {
+		if (Arsenic.instance == null)
 			Arsenic.instance = new Arsenic();
 		return Arsenic.instance;
 	}

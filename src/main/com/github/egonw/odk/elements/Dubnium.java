@@ -11,6 +11,7 @@ public final class Dubnium implements IElement {
 	private Dubnium() {};
 
 	public static IElement getInstance() {
+		if (Dubnium.instance == null)
 			Dubnium.instance = new Dubnium();
 		return Dubnium.instance;
 	}

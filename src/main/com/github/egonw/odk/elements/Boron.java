@@ -11,6 +11,7 @@ public final class Boron implements IElement {
 	private Boron() {};
 
 	public static IElement getInstance() {
+		if (Boron.instance == null)
 			Boron.instance = new Boron();
 		return Boron.instance;
 	}

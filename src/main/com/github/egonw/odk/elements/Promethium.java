@@ -11,6 +11,7 @@ public final class Promethium implements IElement {
 	private Promethium() {};
 
 	public static IElement getInstance() {
+		if (Promethium.instance == null)
 			Promethium.instance = new Promethium();
 		return Promethium.instance;
 	}

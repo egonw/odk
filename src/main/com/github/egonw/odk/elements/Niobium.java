@@ -11,6 +11,7 @@ public final class Niobium implements IElement {
 	private Niobium() {};
 
 	public static IElement getInstance() {
+		if (Niobium.instance == null)
 			Niobium.instance = new Niobium();
 		return Niobium.instance;
 	}

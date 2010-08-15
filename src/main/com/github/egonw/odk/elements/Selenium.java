@@ -11,6 +11,7 @@ public final class Selenium implements IElement {
 	private Selenium() {};
 
 	public static IElement getInstance() {
+		if (Selenium.instance == null)
 			Selenium.instance = new Selenium();
 		return Selenium.instance;
 	}

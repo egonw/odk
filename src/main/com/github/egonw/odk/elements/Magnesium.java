@@ -11,6 +11,7 @@ public final class Magnesium implements IElement {
 	private Magnesium() {};
 
 	public static IElement getInstance() {
+		if (Magnesium.instance == null)
 			Magnesium.instance = new Magnesium();
 		return Magnesium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Cerium implements IElement {
 	private Cerium() {};
 
 	public static IElement getInstance() {
+		if (Cerium.instance == null)
 			Cerium.instance = new Cerium();
 		return Cerium.instance;
 	}

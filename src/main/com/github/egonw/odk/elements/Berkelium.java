@@ -11,6 +11,7 @@ public final class Berkelium implements IElement {
 	private Berkelium() {};
 
 	public static IElement getInstance() {
+		if (Berkelium.instance == null)
 			Berkelium.instance = new Berkelium();
 		return Berkelium.instance;
 	}

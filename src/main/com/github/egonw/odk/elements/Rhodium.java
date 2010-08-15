@@ -11,6 +11,7 @@ public final class Rhodium implements IElement {
 	private Rhodium() {};
 
 	public static IElement getInstance() {
+		if (Rhodium.instance == null)
 			Rhodium.instance = new Rhodium();
 		return Rhodium.instance;
 	}

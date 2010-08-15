@@ -11,6 +11,7 @@ public final class Nitrogen implements IElement {
 	private Nitrogen() {};
 
 	public static IElement getInstance() {
+		if (Nitrogen.instance == null)
 			Nitrogen.instance = new Nitrogen();
 		return Nitrogen.instance;
 	}

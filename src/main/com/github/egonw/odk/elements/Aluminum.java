@@ -11,6 +11,7 @@ public final class Aluminum implements IElement {
 	private Aluminum() {};
 
 	public static IElement getInstance() {
+		if (Aluminum.instance == null)
 			Aluminum.instance = new Aluminum();
 		return Aluminum.instance;
 	}

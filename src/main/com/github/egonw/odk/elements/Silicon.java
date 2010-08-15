@@ -11,6 +11,7 @@ public final class Silicon implements IElement {
 	private Silicon() {};
 
 	public static IElement getInstance() {
+		if (Silicon.instance == null)
 			Silicon.instance = new Silicon();
 		return Silicon.instance;
 	}

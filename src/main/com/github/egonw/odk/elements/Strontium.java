@@ -11,6 +11,7 @@ public final class Strontium implements IElement {
 	private Strontium() {};
 
 	public static IElement getInstance() {
+		if (Strontium.instance == null)
 			Strontium.instance = new Strontium();
 		return Strontium.instance;
 	}

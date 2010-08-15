@@ -11,6 +11,7 @@ public final class Tin implements IElement {
 	private Tin() {};
 
 	public static IElement getInstance() {
+		if (Tin.instance == null)
 			Tin.instance = new Tin();
 		return Tin.instance;
 	}

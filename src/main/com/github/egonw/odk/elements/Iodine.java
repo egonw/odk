@@ -11,6 +11,7 @@ public final class Iodine implements IElement {
 	private Iodine() {};
 
 	public static IElement getInstance() {
+		if (Iodine.instance == null)
 			Iodine.instance = new Iodine();
 		return Iodine.instance;
 	}

@@ -11,6 +11,7 @@ public final class Hafnium implements IElement {
 	private Hafnium() {};
 
 	public static IElement getInstance() {
+		if (Hafnium.instance == null)
 			Hafnium.instance = new Hafnium();
 		return Hafnium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Neon implements IElement {
 	private Neon() {};
 
 	public static IElement getInstance() {
+		if (Neon.instance == null)
 			Neon.instance = new Neon();
 		return Neon.instance;
 	}

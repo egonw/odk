@@ -11,6 +11,7 @@ public final class Xenon implements IElement {
 	private Xenon() {};
 
 	public static IElement getInstance() {
+		if (Xenon.instance == null)
 			Xenon.instance = new Xenon();
 		return Xenon.instance;
 	}

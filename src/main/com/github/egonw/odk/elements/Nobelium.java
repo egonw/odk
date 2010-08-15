@@ -11,6 +11,7 @@ public final class Nobelium implements IElement {
 	private Nobelium() {};
 
 	public static IElement getInstance() {
+		if (Nobelium.instance == null)
 			Nobelium.instance = new Nobelium();
 		return Nobelium.instance;
 	}

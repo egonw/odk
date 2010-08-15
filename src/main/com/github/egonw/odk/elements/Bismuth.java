@@ -11,6 +11,7 @@ public final class Bismuth implements IElement {
 	private Bismuth() {};
 
 	public static IElement getInstance() {
+		if (Bismuth.instance == null)
 			Bismuth.instance = new Bismuth();
 		return Bismuth.instance;
 	}

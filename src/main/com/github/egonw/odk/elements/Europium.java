@@ -11,6 +11,7 @@ public final class Europium implements IElement {
 	private Europium() {};
 
 	public static IElement getInstance() {
+		if (Europium.instance == null)
 			Europium.instance = new Europium();
 		return Europium.instance;
 	}

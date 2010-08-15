@@ -11,6 +11,7 @@ public final class Lead implements IElement {
 	private Lead() {};
 
 	public static IElement getInstance() {
+		if (Lead.instance == null)
 			Lead.instance = new Lead();
 		return Lead.instance;
 	}

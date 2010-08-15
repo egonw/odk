@@ -11,6 +11,7 @@ public final class Osmium implements IElement {
 	private Osmium() {};
 
 	public static IElement getInstance() {
+		if (Osmium.instance == null)
 			Osmium.instance = new Osmium();
 		return Osmium.instance;
 	}

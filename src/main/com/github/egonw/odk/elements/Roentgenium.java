@@ -11,6 +11,7 @@ public final class Roentgenium implements IElement {
 	private Roentgenium() {};
 
 	public static IElement getInstance() {
+		if (Roentgenium.instance == null)
 			Roentgenium.instance = new Roentgenium();
 		return Roentgenium.instance;
 	}

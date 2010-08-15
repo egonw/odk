@@ -11,6 +11,7 @@ public final class Gallium implements IElement {
 	private Gallium() {};
 
 	public static IElement getInstance() {
+		if (Gallium.instance == null)
 			Gallium.instance = new Gallium();
 		return Gallium.instance;
 	}

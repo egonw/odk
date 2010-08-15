@@ -11,6 +11,7 @@ public final class Barium implements IElement {
 	private Barium() {};
 
 	public static IElement getInstance() {
+		if (Barium.instance == null)
 			Barium.instance = new Barium();
 		return Barium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Lithium implements IElement {
 	private Lithium() {};
 
 	public static IElement getInstance() {
+		if (Lithium.instance == null)
 			Lithium.instance = new Lithium();
 		return Lithium.instance;
 	}

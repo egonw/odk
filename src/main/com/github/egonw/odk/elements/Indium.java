@@ -11,6 +11,7 @@ public final class Indium implements IElement {
 	private Indium() {};
 
 	public static IElement getInstance() {
+		if (Indium.instance == null)
 			Indium.instance = new Indium();
 		return Indium.instance;
 	}

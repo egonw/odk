@@ -11,6 +11,7 @@ public final class Silver implements IElement {
 	private Silver() {};
 
 	public static IElement getInstance() {
+		if (Silver.instance == null)
 			Silver.instance = new Silver();
 		return Silver.instance;
 	}

@@ -11,6 +11,7 @@ public final class Helium implements IElement {
 	private Helium() {};
 
 	public static IElement getInstance() {
+		if (Helium.instance == null)
 			Helium.instance = new Helium();
 		return Helium.instance;
 	}

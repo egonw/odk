@@ -21,6 +21,7 @@ public class CreateElements {
 "	private $ELEMENTCLASSNAME$() {};\n" +
 "\n" +
 "	public static IElement getInstance() {\n" +
+"		if ($ELEMENTCLASSNAME$.instance == null)\n" +
 "			$ELEMENTCLASSNAME$.instance = new $ELEMENTCLASSNAME$();\n" +
 "		return $ELEMENTCLASSNAME$.instance;\n" +
 "	}\n" +

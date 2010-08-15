@@ -11,6 +11,7 @@ public final class Chromium implements IElement {
 	private Chromium() {};
 
 	public static IElement getInstance() {
+		if (Chromium.instance == null)
 			Chromium.instance = new Chromium();
 		return Chromium.instance;
 	}

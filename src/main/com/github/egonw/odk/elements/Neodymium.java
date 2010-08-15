@@ -11,6 +11,7 @@ public final class Neodymium implements IElement {
 	private Neodymium() {};
 
 	public static IElement getInstance() {
+		if (Neodymium.instance == null)
 			Neodymium.instance = new Neodymium();
 		return Neodymium.instance;
 	}

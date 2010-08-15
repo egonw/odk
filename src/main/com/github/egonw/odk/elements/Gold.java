@@ -11,6 +11,7 @@ public final class Gold implements IElement {
 	private Gold() {};
 
 	public static IElement getInstance() {
+		if (Gold.instance == null)
 			Gold.instance = new Gold();
 		return Gold.instance;
 	}

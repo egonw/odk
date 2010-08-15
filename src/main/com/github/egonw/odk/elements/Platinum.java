@@ -11,6 +11,7 @@ public final class Platinum implements IElement {
 	private Platinum() {};
 
 	public static IElement getInstance() {
+		if (Platinum.instance == null)
 			Platinum.instance = new Platinum();
 		return Platinum.instance;
 	}

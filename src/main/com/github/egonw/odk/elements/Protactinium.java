@@ -11,6 +11,7 @@ public final class Protactinium implements IElement {
 	private Protactinium() {};
 
 	public static IElement getInstance() {
+		if (Protactinium.instance == null)
 			Protactinium.instance = new Protactinium();
 		return Protactinium.instance;
 	}

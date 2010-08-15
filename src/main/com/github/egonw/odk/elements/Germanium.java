@@ -11,6 +11,7 @@ public final class Germanium implements IElement {
 	private Germanium() {};
 
 	public static IElement getInstance() {
+		if (Germanium.instance == null)
 			Germanium.instance = new Germanium();
 		return Germanium.instance;
 	}

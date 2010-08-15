@@ -11,6 +11,7 @@ public final class Fermium implements IElement {
 	private Fermium() {};
 
 	public static IElement getInstance() {
+		if (Fermium.instance == null)
 			Fermium.instance = new Fermium();
 		return Fermium.instance;
 	}

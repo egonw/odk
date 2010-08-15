@@ -11,6 +11,7 @@ public final class Technetium implements IElement {
 	private Technetium() {};
 
 	public static IElement getInstance() {
+		if (Technetium.instance == null)
 			Technetium.instance = new Technetium();
 		return Technetium.instance;
 	}

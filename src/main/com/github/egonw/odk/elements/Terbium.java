@@ -11,6 +11,7 @@ public final class Terbium implements IElement {
 	private Terbium() {};
 
 	public static IElement getInstance() {
+		if (Terbium.instance == null)
 			Terbium.instance = new Terbium();
 		return Terbium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Argon implements IElement {
 	private Argon() {};
 
 	public static IElement getInstance() {
+		if (Argon.instance == null)
 			Argon.instance = new Argon();
 		return Argon.instance;
 	}

@@ -11,6 +11,7 @@ public final class Beryllium implements IElement {
 	private Beryllium() {};
 
 	public static IElement getInstance() {
+		if (Beryllium.instance == null)
 			Beryllium.instance = new Beryllium();
 		return Beryllium.instance;
 	}

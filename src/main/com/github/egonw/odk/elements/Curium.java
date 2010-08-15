@@ -11,6 +11,7 @@ public final class Curium implements IElement {
 	private Curium() {};
 
 	public static IElement getInstance() {
+		if (Curium.instance == null)
 			Curium.instance = new Curium();
 		return Curium.instance;
 	}

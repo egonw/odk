@@ -11,6 +11,7 @@ public final class Einsteinium implements IElement {
 	private Einsteinium() {};
 
 	public static IElement getInstance() {
+		if (Einsteinium.instance == null)
 			Einsteinium.instance = new Einsteinium();
 		return Einsteinium.instance;
 	}

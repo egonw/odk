@@ -11,6 +11,7 @@ public final class Tellurium implements IElement {
 	private Tellurium() {};
 
 	public static IElement getInstance() {
+		if (Tellurium.instance == null)
 			Tellurium.instance = new Tellurium();
 		return Tellurium.instance;
 	}

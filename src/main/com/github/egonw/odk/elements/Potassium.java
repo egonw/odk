@@ -11,6 +11,7 @@ public final class Potassium implements IElement {
 	private Potassium() {};
 
 	public static IElement getInstance() {
+		if (Potassium.instance == null)
 			Potassium.instance = new Potassium();
 		return Potassium.instance;
 	}

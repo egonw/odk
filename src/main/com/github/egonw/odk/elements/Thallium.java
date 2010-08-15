@@ -11,6 +11,7 @@ public final class Thallium implements IElement {
 	private Thallium() {};
 
 	public static IElement getInstance() {
+		if (Thallium.instance == null)
 			Thallium.instance = new Thallium();
 		return Thallium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Tantalum implements IElement {
 	private Tantalum() {};
 
 	public static IElement getInstance() {
+		if (Tantalum.instance == null)
 			Tantalum.instance = new Tantalum();
 		return Tantalum.instance;
 	}

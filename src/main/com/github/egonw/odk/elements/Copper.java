@@ -11,6 +11,7 @@ public final class Copper implements IElement {
 	private Copper() {};
 
 	public static IElement getInstance() {
+		if (Copper.instance == null)
 			Copper.instance = new Copper();
 		return Copper.instance;
 	}

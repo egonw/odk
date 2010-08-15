@@ -11,6 +11,7 @@ public final class Hydrogen implements IElement {
 	private Hydrogen() {};
 
 	public static IElement getInstance() {
+		if (Hydrogen.instance == null)
 			Hydrogen.instance = new Hydrogen();
 		return Hydrogen.instance;
 	}

@@ -11,6 +11,7 @@ public final class Chlorine implements IElement {
 	private Chlorine() {};
 
 	public static IElement getInstance() {
+		if (Chlorine.instance == null)
 			Chlorine.instance = new Chlorine();
 		return Chlorine.instance;
 	}

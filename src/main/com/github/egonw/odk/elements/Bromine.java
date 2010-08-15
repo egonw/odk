@@ -11,6 +11,7 @@ public final class Bromine implements IElement {
 	private Bromine() {};
 
 	public static IElement getInstance() {
+		if (Bromine.instance == null)
 			Bromine.instance = new Bromine();
 		return Bromine.instance;
 	}

@@ -11,6 +11,7 @@ public final class Polonium implements IElement {
 	private Polonium() {};
 
 	public static IElement getInstance() {
+		if (Polonium.instance == null)
 			Polonium.instance = new Polonium();
 		return Polonium.instance;
 	}

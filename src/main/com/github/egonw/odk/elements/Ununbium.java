@@ -11,6 +11,7 @@ public final class Ununbium implements IElement {
 	private Ununbium() {};
 
 	public static IElement getInstance() {
+		if (Ununbium.instance == null)
 			Ununbium.instance = new Ununbium();
 		return Ununbium.instance;
 	}

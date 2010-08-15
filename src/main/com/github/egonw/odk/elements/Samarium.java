@@ -11,6 +11,7 @@ public final class Samarium implements IElement {
 	private Samarium() {};
 
 	public static IElement getInstance() {
+		if (Samarium.instance == null)
 			Samarium.instance = new Samarium();
 		return Samarium.instance;
 	}

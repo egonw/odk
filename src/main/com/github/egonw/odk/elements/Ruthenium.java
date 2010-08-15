@@ -11,6 +11,7 @@ public final class Ruthenium implements IElement {
 	private Ruthenium() {};
 
 	public static IElement getInstance() {
+		if (Ruthenium.instance == null)
 			Ruthenium.instance = new Ruthenium();
 		return Ruthenium.instance;
 	}

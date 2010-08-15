@@ -11,6 +11,7 @@ public final class Hassium implements IElement {
 	private Hassium() {};
 
 	public static IElement getInstance() {
+		if (Hassium.instance == null)
 			Hassium.instance = new Hassium();
 		return Hassium.instance;
 	}

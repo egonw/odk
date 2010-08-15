@@ -11,6 +11,7 @@ public final class Darmstadtium implements IElement {
 	private Darmstadtium() {};
 
 	public static IElement getInstance() {
+		if (Darmstadtium.instance == null)
 			Darmstadtium.instance = new Darmstadtium();
 		return Darmstadtium.instance;
 	}

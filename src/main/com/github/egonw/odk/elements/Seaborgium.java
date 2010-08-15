@@ -11,6 +11,7 @@ public final class Seaborgium implements IElement {
 	private Seaborgium() {};
 
 	public static IElement getInstance() {
+		if (Seaborgium.instance == null)
 			Seaborgium.instance = new Seaborgium();
 		return Seaborgium.instance;
 	}

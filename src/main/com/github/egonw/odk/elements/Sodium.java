@@ -11,6 +11,7 @@ public final class Sodium implements IElement {
 	private Sodium() {};
 
 	public static IElement getInstance() {
+		if (Sodium.instance == null)
 			Sodium.instance = new Sodium();
 		return Sodium.instance;
 	}

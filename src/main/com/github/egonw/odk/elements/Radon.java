@@ -11,6 +11,7 @@ public final class Radon implements IElement {
 	private Radon() {};
 
 	public static IElement getInstance() {
+		if (Radon.instance == null)
 			Radon.instance = new Radon();
 		return Radon.instance;
 	}

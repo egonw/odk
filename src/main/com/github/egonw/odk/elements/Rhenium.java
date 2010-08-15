@@ -11,6 +11,7 @@ public final class Rhenium implements IElement {
 	private Rhenium() {};
 
 	public static IElement getInstance() {
+		if (Rhenium.instance == null)
 			Rhenium.instance = new Rhenium();
 		return Rhenium.instance;
 	}

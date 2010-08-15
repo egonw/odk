@@ -11,6 +11,7 @@ public final class Krypton implements IElement {
 	private Krypton() {};
 
 	public static IElement getInstance() {
+		if (Krypton.instance == null)
 			Krypton.instance = new Krypton();
 		return Krypton.instance;
 	}

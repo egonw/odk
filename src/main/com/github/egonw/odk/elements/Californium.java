@@ -11,6 +11,7 @@ public final class Californium implements IElement {
 	private Californium() {};
 
 	public static IElement getInstance() {
+		if (Californium.instance == null)
 			Californium.instance = new Californium();
 		return Californium.instance;
 	}

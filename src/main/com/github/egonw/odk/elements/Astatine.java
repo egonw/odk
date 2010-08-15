@@ -11,6 +11,7 @@ public final class Astatine implements IElement {
 	private Astatine() {};
 
 	public static IElement getInstance() {
+		if (Astatine.instance == null)
 			Astatine.instance = new Astatine();
 		return Astatine.instance;
 	}

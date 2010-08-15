@@ -11,6 +11,7 @@ public final class Thorium implements IElement {
 	private Thorium() {};
 
 	public static IElement getInstance() {
+		if (Thorium.instance == null)
 			Thorium.instance = new Thorium();
 		return Thorium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Phosphorus implements IElement {
 	private Phosphorus() {};
 
 	public static IElement getInstance() {
+		if (Phosphorus.instance == null)
 			Phosphorus.instance = new Phosphorus();
 		return Phosphorus.instance;
 	}

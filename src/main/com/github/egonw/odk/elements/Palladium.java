@@ -11,6 +11,7 @@ public final class Palladium implements IElement {
 	private Palladium() {};
 
 	public static IElement getInstance() {
+		if (Palladium.instance == null)
 			Palladium.instance = new Palladium();
 		return Palladium.instance;
 	}

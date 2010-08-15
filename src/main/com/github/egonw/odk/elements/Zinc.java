@@ -11,6 +11,7 @@ public final class Zinc implements IElement {
 	private Zinc() {};
 
 	public static IElement getInstance() {
+		if (Zinc.instance == null)
 			Zinc.instance = new Zinc();
 		return Zinc.instance;
 	}

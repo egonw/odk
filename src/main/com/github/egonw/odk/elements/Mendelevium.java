@@ -11,6 +11,7 @@ public final class Mendelevium implements IElement {
 	private Mendelevium() {};
 
 	public static IElement getInstance() {
+		if (Mendelevium.instance == null)
 			Mendelevium.instance = new Mendelevium();
 		return Mendelevium.instance;
 	}

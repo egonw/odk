@@ -11,6 +11,7 @@ public final class Nickel implements IElement {
 	private Nickel() {};
 
 	public static IElement getInstance() {
+		if (Nickel.instance == null)
 			Nickel.instance = new Nickel();
 		return Nickel.instance;
 	}

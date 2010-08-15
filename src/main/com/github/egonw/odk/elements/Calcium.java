@@ -11,6 +11,7 @@ public final class Calcium implements IElement {
 	private Calcium() {};
 
 	public static IElement getInstance() {
+		if (Calcium.instance == null)
 			Calcium.instance = new Calcium();
 		return Calcium.instance;
 	}

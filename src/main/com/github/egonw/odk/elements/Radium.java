@@ -11,6 +11,7 @@ public final class Radium implements IElement {
 	private Radium() {};
 
 	public static IElement getInstance() {
+		if (Radium.instance == null)
 			Radium.instance = new Radium();
 		return Radium.instance;
 	}

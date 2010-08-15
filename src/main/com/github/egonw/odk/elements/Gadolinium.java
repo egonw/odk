@@ -11,6 +11,7 @@ public final class Gadolinium implements IElement {
 	private Gadolinium() {};
 
 	public static IElement getInstance() {
+		if (Gadolinium.instance == null)
 			Gadolinium.instance = new Gadolinium();
 		return Gadolinium.instance;
 	}

@@ -11,6 +11,7 @@ public final class Thulium implements IElement {
 	private Thulium() {};
 
 	public static IElement getInstance() {
+		if (Thulium.instance == null)
 			Thulium.instance = new Thulium();
 		return Thulium.instance;
 	}

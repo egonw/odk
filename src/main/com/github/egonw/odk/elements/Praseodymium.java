@@ -11,6 +11,7 @@ public final class Praseodymium implements IElement {
 	private Praseodymium() {};
 
 	public static IElement getInstance() {
+		if (Praseodymium.instance == null)
 			Praseodymium.instance = new Praseodymium();
 		return Praseodymium.instance;
 	}

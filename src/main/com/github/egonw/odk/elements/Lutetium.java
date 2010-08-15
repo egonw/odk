@@ -11,6 +11,7 @@ public final class Lutetium implements IElement {
 	private Lutetium() {};
 
 	public static IElement getInstance() {
+		if (Lutetium.instance == null)
 			Lutetium.instance = new Lutetium();
 		return Lutetium.instance;
 	}

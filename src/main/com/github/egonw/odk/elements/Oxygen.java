@@ -11,6 +11,7 @@ public final class Oxygen implements IElement {
 	private Oxygen() {};
 
 	public static IElement getInstance() {
+		if (Oxygen.instance == null)
 			Oxygen.instance = new Oxygen();
 		return Oxygen.instance;
 	}

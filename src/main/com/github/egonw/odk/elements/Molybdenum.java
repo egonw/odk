@@ -11,6 +11,7 @@ public final class Molybdenum implements IElement {
 	private Molybdenum() {};
 
 	public static IElement getInstance() {
+		if (Molybdenum.instance == null)
 			Molybdenum.instance = new Molybdenum();
 		return Molybdenum.instance;
 	}

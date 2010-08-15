@@ -11,6 +11,7 @@ public final class Iridium implements IElement {
 	private Iridium() {};
 
 	public static IElement getInstance() {
+		if (Iridium.instance == null)
 			Iridium.instance = new Iridium();
 		return Iridium.instance;
 	}
