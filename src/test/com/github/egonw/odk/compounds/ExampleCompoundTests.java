@@ -16,18 +16,15 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-package com.github.egonw.odk.modulesuites;
+package com.github.egonw.odk.compounds;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.github.egonw.odk.compounds.ExampleCompoundTests;
-import com.github.egonw.odk.model.MoleculeTest;
-
 @RunWith(value=Suite.class)
 @SuiteClasses(value={
-	MoleculeTest.class,
-	ExampleCompoundTests.class
+	MethaneTest.class,
+	WaterTest.class
 })
-public class MinterfacesTests {}
+public class ExampleCompoundTests {}
