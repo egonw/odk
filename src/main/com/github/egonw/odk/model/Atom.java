@@ -19,7 +19,8 @@ public class Atom implements IAtom {
 		this.type = type;
 		orbitals = new ArrayList<IAtomicOrbital>();
 		for (IOrbitalType orbitalType : type.getOrbitalTypes()) {
-			Orbital orbital = new Orbital(orbitalType);
+			Orbital orbital = new Orbital();
+			orbital.type = orbitalType;
 			orbital.atom = this;
 			orbitals.add(orbital);
 		}

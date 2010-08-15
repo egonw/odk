@@ -11,9 +11,7 @@ public class Orbital implements IAtomicOrbital {
 	protected IAtom atom;
 	protected IMolecularOrbital overlap;
 
-	protected Orbital(IOrbitalType type) {
-		this.type = type;
-	}
+	protected Orbital() {}
 
 	@Override
 	public IAtom getAtom() {

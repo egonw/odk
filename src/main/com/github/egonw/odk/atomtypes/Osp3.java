@@ -9,8 +9,8 @@ import com.github.egonw.odk.elements.Oxygen;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
+import com.github.egonw.odk.model.LonePair;
 import com.github.egonw.odk.model.orbitals.Sp3;
-import com.github.egonw.odk.model.orbitals.Sp3LonePair;
 
 public class Osp3 implements IAtomType {
 
@@ -33,8 +33,8 @@ public class Osp3 implements IAtomType {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>(4);
 		orbitals.add(Sp3.getInstance());
 		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3LonePair.getInstance());
-		orbitals.add(Sp3LonePair.getInstance());
+		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
+		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
 		return orbitals;
 	}
 
