@@ -4,27 +4,27 @@ package com.github.egonw.odk.atomtypes;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.egonw.odk.elements.Oxygen;
+import com.github.egonw.odk.elements.Selenium;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 import com.github.egonw.odk.model.LonePair;
 import com.github.egonw.odk.model.orbitals.*;
 
-public class Osp3 implements IAtomType {
+public class Se3 implements IAtomType {
 
 	private static IAtomType type;
 
-	private Osp3() {}
+	private Se3() {}
 
 	public static IAtomType getInstance() {
-		if (type == null) type = new Osp3();
+		if (type == null) type = new Se3();
 		return type;
 	}
 
 	@Override
 	public IElement getElement() {
-		return Oxygen.getInstance();
+		return Selenium.getInstance();
 	}
 
 	@Override
