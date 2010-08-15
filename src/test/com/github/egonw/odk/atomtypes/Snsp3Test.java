@@ -11,17 +11,17 @@ import ch.unibe.jexample.Injection;
 import ch.unibe.jexample.InjectionPolicy;
 import ch.unibe.jexample.JExample;
 
-import com.github.egonw.odk.elements.Carbon;
+import com.github.egonw.odk.elements.Tin;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.properties.AtomTypeProperties;
 
 @RunWith(JExample.class)
 @Injection(InjectionPolicy.NONE)
-public class Csp3Test {
+public class Snsp3Test {
 
 	@Test
 	public IAtomType createAtomType() {
-		IAtomType type = Csp3.getInstance();
+		IAtomType type = Snsp3.getInstance();
 		Assert.assertNotNull(type);
 		return type;
 	}
@@ -34,7 +34,7 @@ public class Csp3Test {
 	@Given("createAtomType()")
 	public void testElement(IAtomType type) {
 		Assert.assertEquals(
-			Carbon.getInstance(),
+			Tin.getInstance(),
 			type.getElement()
 		);
 	}

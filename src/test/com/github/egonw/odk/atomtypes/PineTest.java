@@ -11,30 +11,30 @@ import ch.unibe.jexample.Injection;
 import ch.unibe.jexample.InjectionPolicy;
 import ch.unibe.jexample.JExample;
 
-import com.github.egonw.odk.elements.Carbon;
+import com.github.egonw.odk.elements.Phosphorus;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.properties.AtomTypeProperties;
 
 @RunWith(JExample.class)
 @Injection(InjectionPolicy.NONE)
-public class Csp3Test {
+public class PineTest {
 
 	@Test
 	public IAtomType createAtomType() {
-		IAtomType type = Csp3.getInstance();
+		IAtomType type = Pine.getInstance();
 		Assert.assertNotNull(type);
 		return type;
 	}
 
 	@Given("createAtomType()")
 	public void testLonePairCount(IAtomType type) {
-		Assert.assertEquals(0, AtomTypeProperties.getLonePairCount(type));
+		Assert.assertEquals(1, AtomTypeProperties.getLonePairCount(type));
 	}
 
 	@Given("createAtomType()")
 	public void testElement(IAtomType type) {
 		Assert.assertEquals(
-			Carbon.getInstance(),
+			Phosphorus.getInstance(),
 			type.getElement()
 		);
 	}

@@ -280,6 +280,17 @@
 	      	</fileset>
 	      </classpath>
 	  	</java>
+	    <java classname="net.sf.cdk.tools.CreateAtomTypeTests">
+	      <classpath>
+	      	<path location="bin" />
+	      	<fileset dir="jar">
+		      <include name="cdk-1.3.5.jar" />
+	      	</fileset>
+	      	<fileset dir="develjar">
+		      <include name="xercesImpl-2.9.0.jar" />
+	      	</fileset>
+	      </classpath>
+	  	</java>
 	  </target>
 
 </project>
