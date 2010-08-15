@@ -8,7 +8,7 @@ import com.github.egonw.odk.elements.Fluorine;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
-import com.github.egonw.odk.model.LonePair;
+import com.github.egonw.odk.model.*;
 import com.github.egonw.odk.model.orbitals.*;
 
 public class F implements IAtomType {
@@ -38,7 +38,7 @@ public class F implements IAtomType {
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
-		orbitals.add(Sp3.getInstance());
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
 		return orbitals;
 	}
 

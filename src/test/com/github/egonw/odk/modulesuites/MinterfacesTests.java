@@ -24,12 +24,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import com.github.egonw.odk.atomtypes.AtomTypeTests;
 import com.github.egonw.odk.compounds.ExampleCompoundTests;
+import com.github.egonw.odk.model.LonePairTest;
 import com.github.egonw.odk.model.MoleculeTest;
 
 @RunWith(value=Suite.class)
 @SuiteClasses(value={
 	MoleculeTest.class,
 	ExampleCompoundTests.class,
-	AtomTypeTests.class
+	AtomTypeTests.class,
+	LonePairTest.class
 })
 public class MinterfacesTests {}

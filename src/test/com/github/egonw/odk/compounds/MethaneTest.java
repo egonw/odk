@@ -35,11 +35,13 @@ public class MethaneTest {
 		for (int i=1; i<=4; i++) {
 			IAtom hydrogen = factory.addAtom(Hs.getInstance());
 			factory.bind(
-				carbon.getFreeOrbital(Sp3.getInstance()),
-				hydrogen.getFreeOrbital(S.getInstance())
+				carbon.getFreeSingleElectron(Sp3.getInstance()),
+				hydrogen.getFreeSingleElectron(S.getInstance())
 			);
 		}
-		return factory.getImmutable();
+		IMolecule immutable = factory.getImmutable();
+		Assert.assertNotNull(immutable);
+		return immutable;
 	}
 
 	@Given("#testMethane(com.github.egonw.odk.model.MoleculeFactory)")
@@ -56,12 +58,18 @@ public class MethaneTest {
 				Assert.assertEquals(
 					4, AtomProperties.getElectronCount(atom)
 				);
+				Assert.assertEquals(
+					8, AtomProperties.getShellElectronCount(atom) // octet rule
+				);
 			} else if (atom.getAtomType().getElement() == Hydrogen.getInstance()) {
 				Assert.assertEquals(
 					1, AtomProperties.getOverlaps(atom).size()
 				);
 				Assert.assertEquals(
 					1, AtomProperties.getElectronCount(atom)
+				);
+				Assert.assertEquals(
+					2, AtomProperties.getShellElectronCount(atom)
 				);
 			} else {
 				Assert.fail("Unexpected element in methane");

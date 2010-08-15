@@ -35,4 +35,8 @@ public class LonePair implements ILonePair {
 		return 2;
 	}
 
+	@Override
+	public boolean isType(IOrbitalType type) {
+		return this.type.isType(type);
+	}
 }

@@ -8,7 +8,7 @@ import com.github.egonw.odk.elements.Sulfur;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
-import com.github.egonw.odk.model.LonePair;
+import com.github.egonw.odk.model.*;
 import com.github.egonw.odk.model.orbitals.*;
 
 public class S3 implements IAtomType {
@@ -37,8 +37,8 @@ public class S3 implements IAtomType {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
 		return orbitals;
 	}
 

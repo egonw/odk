@@ -10,6 +10,6 @@ public interface IAtom {
 
 	public IMolecule getMolecule();
 	
-	public IOrbital getFreeOrbital(IOrbitalType type);
+	public IOrbital getFreeSingleElectron(IOrbitalType type);
 
 }

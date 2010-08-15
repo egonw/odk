@@ -14,15 +14,15 @@ public class Pz implements IHybridizedOrbital {
 		if (type == null) type = new Pz();
 		return type;
 	}
-	
-	@Override
-	public short getElectronCount() {
-		return 1;
-	}
 
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public boolean isType(IOrbitalType type) {
+		return Pz.type == type;
 	}
 
 }

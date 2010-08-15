@@ -35,11 +35,13 @@ public class WaterTest {
 		for (int i=1; i<=2; i++) {
 			IAtom hydrogen = factory.addAtom(Hs.getInstance());
 			factory.bind(
-				oxygen.getFreeOrbital(Sp3.getInstance()),
-				hydrogen.getFreeOrbital(S.getInstance())
+				oxygen.getFreeSingleElectron(Sp3.getInstance()),
+				hydrogen.getFreeSingleElectron(S.getInstance())
 			);
 		}
-		return factory.getImmutable();
+		IMolecule immutable = factory.getImmutable();
+		Assert.assertNotNull(immutable);
+		return immutable;
 	}
 
 	@Given("#testWater(com.github.egonw.odk.model.MoleculeFactory)")
@@ -56,6 +58,9 @@ public class WaterTest {
 				Assert.assertEquals(
 					6, AtomProperties.getElectronCount(atom)
 				);
+				Assert.assertEquals(
+					8, AtomProperties.getShellElectronCount(atom) // octet rule
+				);
 			} else if (atom.getAtomType().getElement() == Hydrogen.getInstance()) {
 				Assert.assertEquals(0, AtomProperties.getLonePairCount(atom));
 				Assert.assertEquals(
@@ -63,6 +68,9 @@ public class WaterTest {
 				);
 				Assert.assertEquals(
 					1, AtomProperties.getElectronCount(atom)
+				);
+				Assert.assertEquals(
+					2, AtomProperties.getShellElectronCount(atom)
 				);
 			} else {
 				Assert.fail("Unexpected element in water");

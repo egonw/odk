@@ -9,6 +9,7 @@ import com.github.egonw.odk.elements.Hydrogen;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
+import com.github.egonw.odk.model.SingleElectron;
 import com.github.egonw.odk.model.orbitals.S;
 
 public class Hs implements IAtomType {
@@ -35,7 +36,7 @@ public class Hs implements IAtomType {
 	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>(1);
-		orbitals.add(S.getInstance());
+		orbitals.add(SingleElectron.getInstance(S.getInstance()));
 		return orbitals;
 	}
 

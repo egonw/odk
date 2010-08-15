@@ -8,6 +8,7 @@ import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IAtomicOrbital;
 import com.github.egonw.odk.interfaces.IMolecule;
 import com.github.egonw.odk.interfaces.IOrbitalType;
+import com.github.egonw.odk.interfaces.ISingleElectron;
 
 public class Atom implements IAtom {
 
@@ -44,9 +45,11 @@ public class Atom implements IAtom {
 	}
 
 	@Override
-	public IAtomicOrbital getFreeOrbital(IOrbitalType type) {
+	public IAtomicOrbital getFreeSingleElectron(IOrbitalType type) {
 		for (IAtomicOrbital orbital : this.orbitals) {
-			if (orbital.getOrbitalType() == type &&
+			IOrbitalType atomOrbitalType = orbital.getOrbitalType();
+			if (atomOrbitalType instanceof ISingleElectron &&
+				atomOrbitalType.isType(type) &&
 				orbital.getOverlap() == null) {
 				return orbital;
 			}

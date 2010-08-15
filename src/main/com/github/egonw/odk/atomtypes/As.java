@@ -8,7 +8,7 @@ import com.github.egonw.odk.elements.Arsenic;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
-import com.github.egonw.odk.model.LonePair;
+import com.github.egonw.odk.model.*;
 import com.github.egonw.odk.model.orbitals.*;
 
 public class As implements IAtomType {
@@ -36,9 +36,9 @@ public class As implements IAtomType {
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
 		return orbitals;
 	}
 

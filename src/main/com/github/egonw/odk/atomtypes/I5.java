@@ -8,7 +8,7 @@ import com.github.egonw.odk.elements.Iodine;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
-import com.github.egonw.odk.model.LonePair;
+import com.github.egonw.odk.model.*;
 import com.github.egonw.odk.model.orbitals.*;
 
 public class I5 implements IAtomType {
@@ -35,10 +35,10 @@ public class I5 implements IAtomType {
 	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Pz.getInstance());
+		orbitals.add(SingleElectron.getInstance(Sp2.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp2.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp2.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Pz.getInstance()));
 		return orbitals;
 	}
 

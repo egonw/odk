@@ -8,7 +8,7 @@ import com.github.egonw.odk.elements.Germanium;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IOrbitalType;
-import com.github.egonw.odk.model.LonePair;
+import com.github.egonw.odk.model.*;
 import com.github.egonw.odk.model.orbitals.*;
 
 public class Ge implements IAtomType {
@@ -35,10 +35,10 @@ public class Ge implements IAtomType {
 	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
-		orbitals.add(Sp3.getInstance());
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
+		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));
 		return orbitals;
 	}
 

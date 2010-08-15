@@ -27,8 +27,8 @@ public class MoleculeTest {
 		for (int i=1; i<=5; i++) {
 			IAtom hydrogen = factory.addAtom(Hs.getInstance());
 			factory.bind(
-				carbon.getFreeOrbital(Sp3.getInstance()), // this throws the Error
-				hydrogen.getFreeOrbital(S.getInstance())
+				carbon.getFreeSingleElectron(Sp3.getInstance()), // this throws the Error
+				hydrogen.getFreeSingleElectron(S.getInstance())
 			);
 		}
 	}

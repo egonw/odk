@@ -13,15 +13,15 @@ public class S implements IOrbitalType {
 		if (type == null) type = new S();
 		return type;
 	}
-	
-	@Override
-	public short getElectronCount() {
-		return 1;
-	}
 
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public boolean isType(IOrbitalType type) {
+		return S.type == type;
 	}
 
 }

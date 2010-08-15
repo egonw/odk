@@ -21,7 +21,7 @@ public class CreateAtomTypes {
 "import com.github.egonw.odk.interfaces.IAtomType;\n" +
 "import com.github.egonw.odk.interfaces.IElement;\n" +
 "import com.github.egonw.odk.interfaces.IOrbitalType;\n" +
-"import com.github.egonw.odk.model.LonePair;\n" +
+"import com.github.egonw.odk.model.*;\n" +
 "import com.github.egonw.odk.model.orbitals.*;\n\n" +
 "public class $ATOMTYPECLASSNAME$ implements IAtomType {\n\n" +
 "	private static IAtomType type;\n\n" +
@@ -69,7 +69,7 @@ public class CreateAtomTypes {
 				}
 				for (int i=0; i<(4-lpCount); i++) {
 					orbitals.append(
-						"\t\torbitals.add(Sp3.getInstance());\n"
+						"\t\torbitals.add(SingleElectron.getInstance(Sp3.getInstance()));\n"
 					);
 				}
 			} else if (type.getHybridization() == Hybridization.SP2 &&
@@ -83,10 +83,10 @@ public class CreateAtomTypes {
 				}
 				for (int i=0; i<(3-lpCount); i++) {
 					orbitals.append(
-						"\t\torbitals.add(Sp2.getInstance());\n"
+						"\t\torbitals.add(SingleElectron.getInstance(Sp2.getInstance()));\n"
 					);
 				}
-				orbitals.append("\t\torbitals.add(Pz.getInstance());\n");
+				orbitals.append("\t\torbitals.add(SingleElectron.getInstance(Pz.getInstance()));\n");
 			}
 
 			if (orbitals.toString().length() > 5) {

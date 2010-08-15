@@ -1,6 +1,7 @@
 package com.github.egonw.odk.properties;
 
 import com.github.egonw.odk.interfaces.IAtomType;
+import com.github.egonw.odk.interfaces.IFilledOrbitalType;
 import com.github.egonw.odk.interfaces.ILonePair;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 
@@ -16,4 +17,15 @@ public class AtomTypeProperties {
 		return count;
 	}
 
+	public static int getElectronCount(IAtomType atomType) {
+		int count = 0;
+		for (IOrbitalType type : atomType.getOrbitalTypes()) {
+			if (type instanceof IFilledOrbitalType) {
+				count += ((IFilledOrbitalType)type).getElectronCount();
+			} else {
+				count += 0; // no clue
+			}
+		}
+		return count;
+	}
 }

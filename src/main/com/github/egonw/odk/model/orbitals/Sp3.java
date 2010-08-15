@@ -14,15 +14,15 @@ public class Sp3 implements IHybridizedOrbital {
 		if (type == null) type = new Sp3();
 		return type;
 	}
-	
-	@Override
-	public short getElectronCount() {
-		return 1;
-	}
 
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public boolean isType(IOrbitalType type) {
+		return Sp3.type == type;
 	}
 
 }
