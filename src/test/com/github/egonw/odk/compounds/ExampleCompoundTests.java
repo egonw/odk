@@ -25,6 +25,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(value=Suite.class)
 @SuiteClasses(value={
 	MethaneTest.class,
+	EthaneTest.class,
 	WaterTest.class
 })
 public class ExampleCompoundTests {}
