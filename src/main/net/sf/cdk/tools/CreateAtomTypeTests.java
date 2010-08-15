@@ -45,6 +45,12 @@ public class CreateAtomTypeTests {
 "			type.getElement()\n" +
 "		);\n" +
 "	}\n\n" +
+"	@Given(\"createAtomType()\")\n" +
+"	public void testName(IAtomType type) {\n" +
+"		Assert.assertEquals(\n" +
+"			\"$ATNAME$\", type.getName()\n" +
+"		);\n" +
+"	}\n\n" +
 "}\n";
 
 	private final static String SUITE_TEMPLATE =
@@ -85,6 +91,7 @@ public class CreateAtomTypeTests {
 				fileContent = fileContent.replace("$ELEMENTCLASSNAME$", elementClassName);
 				fileContent = fileContent.replace("$ATOMTYPECLASSNAME$", atomtypeClassName);
 				fileContent = fileContent.replace("$LPCOUNT$", "" + lpCount);
+				fileContent = fileContent.replace("$ATNAME$", type.getAtomTypeName());
 				if (testClasses.length() > 0)
 					testClasses.append(",\n");
 				testClasses.append("  " + atomtypeClassName + "Test.class");

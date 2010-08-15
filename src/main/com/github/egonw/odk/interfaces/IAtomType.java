@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface IAtomType {
 
+	public String getName();
 	public IElement getElement();
 	
 	public List<IOrbitalType> getOrbitalTypes();

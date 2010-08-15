@@ -39,4 +39,11 @@ public class ClperchlorateTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"Cl.perchlorate", type.getName()
+		);
+	}
+
 }

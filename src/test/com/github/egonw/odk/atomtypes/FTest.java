@@ -39,4 +39,11 @@ public class FTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"F", type.getName()
+		);
+	}
+
 }

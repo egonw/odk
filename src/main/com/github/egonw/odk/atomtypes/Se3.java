@@ -28,6 +28,11 @@ public class Se3 implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "Se.3";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(LonePair.getInstance(Sp3.getInstance()));

@@ -39,4 +39,11 @@ public class Nsp3Test {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"N.sp3", type.getName()
+		);
+	}
+
 }

@@ -39,4 +39,11 @@ public class PateTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"P.ate", type.getName()
+		);
+	}
+
 }

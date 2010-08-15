@@ -28,6 +28,11 @@ public class Sisp3 implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "Si.sp3";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

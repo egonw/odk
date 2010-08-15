@@ -28,6 +28,11 @@ public class Pse3 implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "P.se.3";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

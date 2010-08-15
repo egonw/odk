@@ -39,4 +39,11 @@ public class GeTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"Ge", type.getName()
+		);
+	}
+
 }

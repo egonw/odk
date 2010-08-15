@@ -28,6 +28,11 @@ public class Ge implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "Ge";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

@@ -39,4 +39,11 @@ public class Se3Test {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"Se.3", type.getName()
+		);
+	}
+
 }

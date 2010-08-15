@@ -28,6 +28,11 @@ public class Clperchlorate implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "Cl.perchlorate";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

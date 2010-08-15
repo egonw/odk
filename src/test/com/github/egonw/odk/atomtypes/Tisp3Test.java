@@ -39,4 +39,11 @@ public class Tisp3Test {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"Ti.sp3", type.getName()
+		);
+	}
+
 }

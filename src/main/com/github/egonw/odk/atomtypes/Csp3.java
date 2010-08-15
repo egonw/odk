@@ -28,6 +28,11 @@ public class Csp3 implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "C.sp3";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

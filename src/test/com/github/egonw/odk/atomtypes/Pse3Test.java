@@ -39,4 +39,11 @@ public class Pse3Test {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"P.se.3", type.getName()
+		);
+	}
+
 }

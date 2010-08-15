@@ -35,6 +35,10 @@ public class CreateAtomTypes {
 "		return $ELEMENTCLASSNAME$.getInstance();\n" +
 "	}\n\n" +
 "	@Override\n" +
+"	public String getName() {\n" +
+"		return \"$ATNAME$\";\n" +
+"	}\n\n" +
+"	@Override\n" +
 "	public List<IOrbitalType> getOrbitalTypes() {\n" +
 "		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();\n" +
 "$ORBITALS$" +
@@ -74,6 +78,7 @@ public class CreateAtomTypes {
 				String fileContent = TEMPLATE;
 				fileContent = fileContent.replace("$ELEMENTCLASSNAME$", elementClassName);
 				fileContent = fileContent.replace("$ATOMTYPECLASSNAME$", atomtypeClassName);
+				fileContent = fileContent.replace("$ATNAME$", type.getAtomTypeName());
 				fileContent = fileContent.replace("$ORBITALS$", orbitals.toString());
 
 				FileWriter fileWriter = new FileWriter(

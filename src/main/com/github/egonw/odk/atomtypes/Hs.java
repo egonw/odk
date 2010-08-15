@@ -23,6 +23,11 @@ public class Hs implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "H";
+	}
+
+	@Override
 	public IElement getElement() {
 		return Hydrogen.getInstance();
 	}

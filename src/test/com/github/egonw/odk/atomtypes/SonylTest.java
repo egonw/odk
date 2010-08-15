@@ -39,4 +39,11 @@ public class SonylTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"S.onyl", type.getName()
+		);
+	}
+
 }

@@ -28,6 +28,11 @@ public class B implements IAtomType {
 	}
 
 	@Override
+	public String getName() {
+		return "B";
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(Sp3.getInstance());

@@ -39,4 +39,11 @@ public class PineTest {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"P.ine", type.getName()
+		);
+	}
+
 }

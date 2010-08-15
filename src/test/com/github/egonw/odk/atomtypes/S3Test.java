@@ -39,4 +39,11 @@ public class S3Test {
 		);
 	}
 
+	@Given("createAtomType()")
+	public void testName(IAtomType type) {
+		Assert.assertEquals(
+			"S.3", type.getName()
+		);
+	}
+
 }
