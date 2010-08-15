@@ -72,6 +72,21 @@ public class CreateAtomTypes {
 						"\t\torbitals.add(Sp3.getInstance());\n"
 					);
 				}
+			} else if (type.getHybridization() == Hybridization.SP2 &&
+					type.getFormalCharge() == 0 &&
+					!type.getAtomTypeName().contains("radical")) {
+				int lpCount = (Integer)type.getProperty(CDKConstants.LONE_PAIR_COUNT);
+				for (int i=0; i<lpCount; i++) {
+					orbitals.append(
+						"\t\torbitals.add(LonePair.getInstance(Sp2.getInstance()));\n"
+					);
+				}
+				for (int i=0; i<(3-lpCount); i++) {
+					orbitals.append(
+						"\t\torbitals.add(Sp2.getInstance());\n"
+					);
+				}
+				orbitals.append("\t\torbitals.add(Pz.getInstance());\n");
 			}
 
 			if (orbitals.toString().length() > 5) {

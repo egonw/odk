@@ -83,6 +83,10 @@ public class CreateAtomTypeTests {
 				type.getFormalCharge() == 0 &&
 				!type.getAtomTypeName().contains("radical")) {
 				orbitals.append("xXXXXXXXXXXXXXXXXXXXXXXXXXXXx");
+			} else if (type.getHybridization() == Hybridization.SP2 &&
+					type.getFormalCharge() == 0 &&
+					!type.getAtomTypeName().contains("radical")) {
+				orbitals.append("xXXXXXXXXXXXXXXXXXXXXXXXXXXXx");
 			}
 
 			if (orbitals.toString().length() > 5) {
