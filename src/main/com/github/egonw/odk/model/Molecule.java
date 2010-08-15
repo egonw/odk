@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.egonw.odk.interfaces.IAtom;
-import com.github.egonw.odk.interfaces.IOverlap;
+import com.github.egonw.odk.interfaces.IMolecularOrbital;
 import com.github.egonw.odk.interfaces.IMolecule;
 
 public class Molecule implements IMolecule {
 
 	protected List<IAtom> atoms;
-	protected List<IOverlap> overlaps;
+	protected List<IMolecularOrbital> overlaps;
 
 	protected Molecule() {
 		atoms = new ArrayList<IAtom>();
-		overlaps = new ArrayList<IOverlap>();
+		overlaps = new ArrayList<IMolecularOrbital>();
 	}
 
 	@Override
@@ -25,8 +25,8 @@ public class Molecule implements IMolecule {
 	}
 
 	@Override
-	public List<IOverlap> getOverlaps() {
-		List<IOverlap> overlaps = new ArrayList<IOverlap>();
+	public List<IMolecularOrbital> getOverlaps() {
+		List<IMolecularOrbital> overlaps = new ArrayList<IMolecularOrbital>();
 		overlaps.addAll(this.overlaps);
 		return overlaps;
 	}

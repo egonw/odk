@@ -5,19 +5,19 @@ import java.util.List;
 
 import com.github.egonw.odk.interfaces.IAtom;
 import com.github.egonw.odk.interfaces.IAtomType;
+import com.github.egonw.odk.interfaces.IAtomicOrbital;
 import com.github.egonw.odk.interfaces.IMolecule;
-import com.github.egonw.odk.interfaces.IOrbital;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 
 public class Atom implements IAtom {
 
 	protected IAtomType type;
 	protected IMolecule molecule;
-	protected List<IOrbital> orbitals;
+	protected List<IAtomicOrbital> orbitals;
 
 	protected Atom(IAtomType type) {
 		this.type = type;
-		orbitals = new ArrayList<IOrbital>();
+		orbitals = new ArrayList<IAtomicOrbital>();
 		for (IOrbitalType orbitalType : type.getOrbitalTypes()) {
 			Orbital orbital = new Orbital(orbitalType);
 			orbital.atom = this;
@@ -26,8 +26,8 @@ public class Atom implements IAtom {
 	}
 
 	@Override
-	public List<IOrbital> getOrbitals() {
-		List<IOrbital> orbitals = new ArrayList<IOrbital>();
+	public List<IAtomicOrbital> getOrbitals() {
+		List<IAtomicOrbital> orbitals = new ArrayList<IAtomicOrbital>();
 		orbitals.addAll(this.orbitals);
 		return orbitals;
 	}
@@ -43,8 +43,8 @@ public class Atom implements IAtom {
 	}
 
 	@Override
-	public IOrbital getFreeOrbital(IOrbitalType type) {
-		for (IOrbital orbital : this.orbitals) {
+	public IAtomicOrbital getFreeOrbital(IOrbitalType type) {
+		for (IAtomicOrbital orbital : this.orbitals) {
 			if (orbital.getOrbitalType() == type &&
 				orbital.getOverlap() == null) {
 				return orbital;

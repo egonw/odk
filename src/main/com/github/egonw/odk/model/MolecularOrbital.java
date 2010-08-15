@@ -3,14 +3,15 @@ package com.github.egonw.odk.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.egonw.odk.interfaces.IOverlap;
+import com.github.egonw.odk.interfaces.IMolecularOrbital;
 import com.github.egonw.odk.interfaces.IOrbital;
+import com.github.egonw.odk.interfaces.IOrbitalType;
 
-public class Overlap implements IOverlap {
+public class MolecularOrbital implements IMolecularOrbital {
 
 	protected List<IOrbital> orbitals;
 
-	protected Overlap(IOrbital... orbitals) {
+	protected MolecularOrbital(IOrbital... orbitals) {
 		this.orbitals = new ArrayList<IOrbital>();
 		for (IOrbital orbital : orbitals) {
 			if (orbital == null)
@@ -28,12 +29,8 @@ public class Overlap implements IOverlap {
 	}
 
 	@Override
-	public int getElectronCount() {
-		int count = 0;
-		for (IOrbital orbital : this.orbitals) {
-			count += orbital.getElectronCount();
-		}
-		return count;
+	public IOrbitalType getOrbitalType() {
+		return null;
 	}
 
 }

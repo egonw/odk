@@ -1,8 +1,9 @@
 package com.github.egonw.odk.model.orbitals;
 
+import com.github.egonw.odk.interfaces.IHybridizedOrbital;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 
-public class Sp3 implements IOrbitalType {
+public class Sp3 implements IHybridizedOrbital {
 
 	private final static String NAME = "sp3";
 	protected static IOrbitalType type;

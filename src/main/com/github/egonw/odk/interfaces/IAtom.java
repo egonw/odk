@@ -6,7 +6,7 @@ public interface IAtom {
 	
 	public IAtomType getAtomType();
 
-	public List<IOrbital> getOrbitals();
+	public List<IAtomicOrbital> getOrbitals();
 
 	public IMolecule getMolecule();
 	

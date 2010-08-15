@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.egonw.odk.interfaces.IAtom;
-import com.github.egonw.odk.interfaces.IOverlap;
-import com.github.egonw.odk.interfaces.IOrbital;
+import com.github.egonw.odk.interfaces.IAtomicOrbital;
+import com.github.egonw.odk.interfaces.IMolecularOrbital;
 
 public class AtomProperties {
 
 	public static int getElectronCount(IAtom atom) {
 		int count = 0;
 		System.out.println(atom.getAtomType().getElement().getSymbol());
-		for (IOrbital orbital : atom.getOrbitals()) {
+		for (IAtomicOrbital orbital : atom.getOrbitals()) {
 			System.out.println("  " + orbital.getOrbitalType().getName());
-			count += orbital.getElectronCount();
+			count += orbital.getOrbitalType().getElectronCount();
 		}
 		return count;
 	}
 
-	public static List<IOverlap> getOverlaps(IAtom atom) {
-		List<IOverlap> overlaps = new ArrayList<IOverlap>();
-		for (IOrbital orbital : atom.getOrbitals()) {
+	public static List<IMolecularOrbital> getOverlaps(IAtom atom) {
+		List<IMolecularOrbital> overlaps = new ArrayList<IMolecularOrbital>();
+		for (IAtomicOrbital orbital : atom.getOrbitals()) {
 			if (orbital.getOverlap() != null) {
 				overlaps.add(orbital.getOverlap());
 			}
