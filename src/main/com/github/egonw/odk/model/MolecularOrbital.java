@@ -7,7 +7,7 @@ import com.github.egonw.odk.interfaces.IMolecularOrbital;
 import com.github.egonw.odk.interfaces.IOrbital;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 
-public class MolecularOrbital implements IMolecularOrbital {
+public class MolecularOrbital extends AbstractOrbital implements IMolecularOrbital {
 
 	protected List<IOrbital> orbitals;
 
@@ -17,7 +17,7 @@ public class MolecularOrbital implements IMolecularOrbital {
 			if (orbital == null)
 				throw new NullPointerException("Orbital cannot be null");
 			this.orbitals.add(orbital);
-			((Orbital)orbital).overlap = this;
+			((AbstractOrbital)orbital).overlap = this;
 		}
 	}
 
