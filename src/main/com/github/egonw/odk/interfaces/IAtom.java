@@ -11,5 +11,7 @@ public interface IAtom {
 	public IMolecule getMolecule();
 	
 	public IOrbital getFreeSingleElectron(IOrbitalType type);
+	public IOrbital getFreeLonePair(IOrbitalType type);
+	public IOrbital getFreeEmpty(IOrbitalType type);
 
 }

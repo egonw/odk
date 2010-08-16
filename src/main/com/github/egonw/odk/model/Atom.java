@@ -6,6 +6,8 @@ import java.util.List;
 import com.github.egonw.odk.interfaces.IAtom;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IAtomicOrbital;
+import com.github.egonw.odk.interfaces.IEmpty;
+import com.github.egonw.odk.interfaces.ILonePair;
 import com.github.egonw.odk.interfaces.IMolecule;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 import com.github.egonw.odk.interfaces.ISingleElectron;
@@ -49,6 +51,36 @@ public class Atom implements IAtom {
 		for (IAtomicOrbital orbital : this.orbitals) {
 			IOrbitalType atomOrbitalType = orbital.getOrbitalType();
 			if (atomOrbitalType instanceof ISingleElectron &&
+				atomOrbitalType.isType(type) &&
+				orbital.getOverlap() == null) {
+				return orbital;
+			}
+		}
+		throw new IllegalAccessError(
+			"There is no free orbital of type " + type.getName()
+		);
+	}
+
+	@Override
+	public IAtomicOrbital getFreeLonePair(IOrbitalType type) {
+		for (IAtomicOrbital orbital : this.orbitals) {
+			IOrbitalType atomOrbitalType = orbital.getOrbitalType();
+			if (atomOrbitalType instanceof ILonePair &&
+				atomOrbitalType.isType(type) &&
+				orbital.getOverlap() == null) {
+				return orbital;
+			}
+		}
+		throw new IllegalAccessError(
+			"There is no free orbital of type " + type.getName()
+		);
+	}
+
+	@Override
+	public IAtomicOrbital getFreeEmpty(IOrbitalType type) {
+		for (IAtomicOrbital orbital : this.orbitals) {
+			IOrbitalType atomOrbitalType = orbital.getOrbitalType();
+			if (atomOrbitalType instanceof IEmpty &&
 				atomOrbitalType.isType(type) &&
 				orbital.getOverlap() == null) {
 				return orbital;
