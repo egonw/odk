@@ -13,11 +13,18 @@ public class MolecularOrbitalProperties {
 		int count = 0;
 		List<IOrbital> atomicOrbitals = molOrbital.getOrbitals();
 		for (IOrbital orbital : atomicOrbitals) {
-			IOrbitalType type = orbital.getOrbitalType();
-			if (type instanceof IFilledOrbitalType) {
-				count += ((IFilledOrbitalType)type).getElectronCount();
+			if (orbital instanceof IMolecularOrbital) {
+				count += getElectronCount((IMolecularOrbital)orbital);
 			} else {
-				count += 0; // no clue
+				IOrbitalType type = orbital.getOrbitalType();
+				if (type instanceof IFilledOrbitalType) {
+					count += ((IFilledOrbitalType)type).getElectronCount();
+				} else {
+					System.out.println(orbital);
+					throw new IllegalArgumentException(
+							"Cannot count electrons with unfilled orbital " + type.getName()
+					);
+				}
 			}
 		}
 		return count;
