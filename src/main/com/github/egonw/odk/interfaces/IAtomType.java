@@ -6,6 +6,7 @@ public interface IAtomType {
 
 	public String getName();
 	public IElement getElement();
+	public short getOxidationState();
 	
 	public List<IOrbitalType> getOrbitalTypes();
 

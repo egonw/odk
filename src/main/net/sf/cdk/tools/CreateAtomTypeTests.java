@@ -46,6 +46,13 @@ public class CreateAtomTypeTests {
 "		);\n" +
 "	}\n\n" +
 "	@Given(\"createAtomType()\")\n" +
+"	public void testFormalCharge(IAtomType type) {\n" +
+"		Assert.assertEquals(\n" +
+"			$FORMALCHARGE$,\n" +
+"			AtomTypeProperties.getFormalCharge(type)\n" +
+"		);\n" +
+"	}\n\n" +
+"	@Given(\"createAtomType()\")\n" +
 "	public void testName(IAtomType type) {\n" +
 "		Assert.assertEquals(\n" +
 "			\"$ATNAME$\", type.getName()\n" +
@@ -96,6 +103,7 @@ public class CreateAtomTypeTests {
 				fileContent = fileContent.replace("$ATOMTYPECLASSNAME$", atomtypeClassName);
 				fileContent = fileContent.replace("$LPCOUNT$", "" + lpCount);
 				fileContent = fileContent.replace("$ATNAME$", type.getAtomTypeName());
+				fileContent = fileContent.replace("$FORMALCHARGE$", "" + type.getFormalCharge());
 				if (testClasses.length() > 0)
 					testClasses.append(",\n");
 				testClasses.append("  " + atomtypeClassName + "Test.class");

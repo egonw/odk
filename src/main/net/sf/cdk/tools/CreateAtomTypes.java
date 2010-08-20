@@ -39,6 +39,10 @@ public class CreateAtomTypes {
 "		return \"$ATNAME$\";\n" +
 "	}\n\n" +
 "	@Override\n" +
+"	public short getOxidationState() {\n" +
+"		return $OXSTATE$;\n" +
+"	}\n\n" +
+"	@Override\n" +
 "	public List<IOrbitalType> getOrbitalTypes() {\n" +
 "		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();\n" +
 "$ORBITALS$" +
@@ -52,6 +56,7 @@ public class CreateAtomTypes {
 			NoNotificationChemObjectBuilder.getInstance()
 		);
 		for (IAtomType type : factory.getAllAtomTypes()) {
+			int electronCount = 0;
 			String symbol = type.getSymbol();
 			String elementClassName = upperCase(PeriodicTable.getName(symbol));
 			String atomtypeClassName = upperCase(
@@ -63,11 +68,13 @@ public class CreateAtomTypes {
 				!type.getAtomTypeName().contains("radical")) {
 				int lpCount = (Integer)type.getProperty(CDKConstants.LONE_PAIR_COUNT);
 				for (int i=0; i<lpCount; i++) {
+					electronCount += 2;
 					orbitals.append(
 						"\t\torbitals.add(LonePair.getInstance(Sp3.getInstance()));\n"
 					);
 				}
 				for (int i=0; i<(4-lpCount); i++) {
+					electronCount += 1;
 					orbitals.append(
 						"\t\torbitals.add(SingleElectron.getInstance(Sp3.getInstance()));\n"
 					);
@@ -77,17 +84,22 @@ public class CreateAtomTypes {
 					!type.getAtomTypeName().contains("radical")) {
 				int lpCount = (Integer)type.getProperty(CDKConstants.LONE_PAIR_COUNT);
 				for (int i=0; i<lpCount; i++) {
+					electronCount += 2;
 					orbitals.append(
 						"\t\torbitals.add(LonePair.getInstance(Sp2.getInstance()));\n"
 					);
 				}
 				for (int i=0; i<(3-lpCount); i++) {
+					electronCount += 1;
 					orbitals.append(
 						"\t\torbitals.add(SingleElectron.getInstance(Sp2.getInstance()));\n"
 					);
 				}
+				electronCount += 1;
 				orbitals.append("\t\torbitals.add(SingleElectron.getInstance(Pz.getInstance()));\n");
 			}
+			int formalCharge = type.getFormalCharge();
+			int oxidationState = electronCount + formalCharge;
 
 			if (orbitals.toString().length() > 5) {
 				String fileContent = TEMPLATE;
@@ -95,6 +107,7 @@ public class CreateAtomTypes {
 				fileContent = fileContent.replace("$ATOMTYPECLASSNAME$", atomtypeClassName);
 				fileContent = fileContent.replace("$ATNAME$", type.getAtomTypeName());
 				fileContent = fileContent.replace("$ORBITALS$", orbitals.toString());
+				fileContent = fileContent.replace("$OXSTATE$", "" + oxidationState);
 
 				FileWriter fileWriter = new FileWriter(
 					new File(

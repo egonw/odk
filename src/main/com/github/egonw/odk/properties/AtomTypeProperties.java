@@ -28,4 +28,9 @@ public class AtomTypeProperties {
 		}
 		return count;
 	}
+
+	public static short getFormalCharge(IAtomType atomType) {
+		short electronCount = (short)getElectronCount(atomType);
+		return (short)(atomType.getOxidationState() - electronCount);
+	}
 }
