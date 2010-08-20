@@ -24,6 +24,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import com.github.egonw.odk.atomtypes.AtomTypeTests;
 import com.github.egonw.odk.compounds.ExampleCompoundTests;
+import com.github.egonw.odk.matrix.MolecularMatrixTest;
 import com.github.egonw.odk.model.LonePairTest;
 import com.github.egonw.odk.model.MoleculeTest;
 
@@ -32,6 +33,7 @@ import com.github.egonw.odk.model.MoleculeTest;
 	MoleculeTest.class,
 	ExampleCompoundTests.class,
 	AtomTypeTests.class,
-	LonePairTest.class
+	LonePairTest.class,
+	MolecularMatrixTest.class
 })
 public class MinterfacesTests {}
