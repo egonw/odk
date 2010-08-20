@@ -28,6 +28,7 @@ import com.github.egonw.odk.model.orbitals.S;
 import com.github.egonw.odk.model.orbitals.Sp2;
 import com.github.egonw.odk.model.orbitals.Sp3;
 import com.github.egonw.odk.properties.AtomProperties;
+import com.github.egonw.odk.properties.MoleculeProperties;
 
 @RunWith(JExample.class)
 public class ZeisesSaltTest {
@@ -81,6 +82,7 @@ public class ZeisesSaltTest {
 
 	@Given("#testMoleculeCreation(com.github.egonw.odk.model.MoleculeFactory)")
 	public void testMoleculeProperties(IMolecule molecule) {
+		Assert.assertEquals(-1, MoleculeProperties.getFormalCharge(molecule));
 		List<IAtom> atoms = molecule.getAtoms();
 		Assert.assertEquals(10, atoms.size());
 		Assert.assertEquals(10, molecule.getOverlaps().size());
@@ -96,6 +98,9 @@ public class ZeisesSaltTest {
 				Assert.assertEquals(
 					8, AtomProperties.getShellElectronCount(atom) // octet rule
 				);
+				Assert.assertEquals(
+					0, AtomProperties.getFormalCharge(atom)
+				);
 			} else if (atom.getAtomType().getElement() == Hydrogen.getInstance()) {
 				Assert.assertEquals(0, AtomProperties.getLonePairCount(atom));
 				Assert.assertEquals(
@@ -106,6 +111,9 @@ public class ZeisesSaltTest {
 				);
 				Assert.assertEquals(
 					2, AtomProperties.getShellElectronCount(atom)
+				);
+				Assert.assertEquals(
+					0, AtomProperties.getFormalCharge(atom)
 				);
 			} else if (atom.getAtomType().getElement() == Platinum.getInstance()) {
 				Assert.assertEquals(0, AtomProperties.getLonePairCount(atom));
@@ -118,6 +126,9 @@ public class ZeisesSaltTest {
 				Assert.assertEquals(
 					8, AtomProperties.getShellElectronCount(atom)
 				);
+				Assert.assertEquals(
+					2, AtomProperties.getFormalCharge(atom)
+				);
 			} else if (atom.getAtomType().getElement() == Chlorine.getInstance()) {
 				Assert.assertEquals(4, AtomProperties.getLonePairCount(atom));
 				Assert.assertEquals(
@@ -128,6 +139,9 @@ public class ZeisesSaltTest {
 				);
 				Assert.assertEquals(
 					8, AtomProperties.getShellElectronCount(atom)
+				);
+				Assert.assertEquals(
+					-1, AtomProperties.getFormalCharge(atom)
 				);
 			} else {
 				Assert.fail("Unexpected element in molecule");

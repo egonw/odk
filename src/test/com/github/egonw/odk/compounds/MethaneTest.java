@@ -20,6 +20,7 @@ import com.github.egonw.odk.model.MoleculeFactory;
 import com.github.egonw.odk.model.orbitals.S;
 import com.github.egonw.odk.model.orbitals.Sp3;
 import com.github.egonw.odk.properties.AtomProperties;
+import com.github.egonw.odk.properties.MoleculeProperties;
 
 @RunWith(JExample.class)
 public class MethaneTest {
@@ -46,6 +47,7 @@ public class MethaneTest {
 
 	@Given("#testMethane(com.github.egonw.odk.model.MoleculeFactory)")
 	public void testMethaneProperties(IMolecule methane) {
+		Assert.assertEquals(0, MoleculeProperties.getFormalCharge(methane));
 		List<IAtom> atoms = methane.getAtoms();
 		Assert.assertEquals(5, atoms.size());
 		Assert.assertEquals(4, methane.getOverlaps().size());

@@ -20,6 +20,7 @@ import com.github.egonw.odk.model.MoleculeFactory;
 import com.github.egonw.odk.model.orbitals.S;
 import com.github.egonw.odk.model.orbitals.Sp3;
 import com.github.egonw.odk.properties.AtomProperties;
+import com.github.egonw.odk.properties.MoleculeProperties;
 
 @RunWith(JExample.class)
 public class WaterTest {
@@ -46,6 +47,7 @@ public class WaterTest {
 
 	@Given("#testWater(com.github.egonw.odk.model.MoleculeFactory)")
 	public void testWaterProperties(IMolecule water) {
+		Assert.assertEquals(0, MoleculeProperties.getFormalCharge(water));
 		List<IAtom> atoms = water.getAtoms();
 		Assert.assertEquals(3, atoms.size());
 		Assert.assertEquals(2, water.getOverlaps().size());
