@@ -40,4 +40,9 @@ public class Hs implements IAtomType {
 		return orbitals;
 	}
 
+	@Override
+	public short getOxidationState() {
+		return 1;
+	}
+
 }

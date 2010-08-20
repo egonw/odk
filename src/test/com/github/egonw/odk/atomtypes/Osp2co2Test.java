@@ -40,6 +40,14 @@ public class Osp2co2Test {
 	}
 
 	@Given("createAtomType()")
+	public void testFormalCharge(IAtomType type) {
+		Assert.assertEquals(
+			0,
+			AtomTypeProperties.getFormalCharge(type)
+		);
+	}
+
+	@Given("createAtomType()")
 	public void testName(IAtomType type) {
 		Assert.assertEquals(
 			"O.sp2.co2", type.getName()

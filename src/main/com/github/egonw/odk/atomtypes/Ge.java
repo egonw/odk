@@ -33,6 +33,11 @@ public class Ge implements IAtomType {
 	}
 
 	@Override
+	public short getOxidationState() {
+		return 4;
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(SingleElectron.getInstance(Sp3.getInstance()));

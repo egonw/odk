@@ -42,4 +42,9 @@ public class Clminus implements IAtomType {
 		return orbitals;
 	}
 
+	@Override
+	public short getOxidationState() {
+		return 3;
+	}
+
 }

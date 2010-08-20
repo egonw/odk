@@ -42,4 +42,9 @@ public class Ptsp implements IAtomType {
 		return orbitals;
 	}
 
+	@Override
+	public short getOxidationState() {
+		return 2;
+	}
+
 }

@@ -40,6 +40,14 @@ public class Csp3Test {
 	}
 
 	@Given("createAtomType()")
+	public void testFormalCharge(IAtomType type) {
+		Assert.assertEquals(
+			0,
+			AtomTypeProperties.getFormalCharge(type)
+		);
+	}
+
+	@Given("createAtomType()")
 	public void testName(IAtomType type) {
 		Assert.assertEquals(
 			"C.sp3", type.getName()

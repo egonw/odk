@@ -40,6 +40,14 @@ public class PateTest {
 	}
 
 	@Given("createAtomType()")
+	public void testFormalCharge(IAtomType type) {
+		Assert.assertEquals(
+			0,
+			AtomTypeProperties.getFormalCharge(type)
+		);
+	}
+
+	@Given("createAtomType()")
 	public void testName(IAtomType type) {
 		Assert.assertEquals(
 			"P.ate", type.getName()

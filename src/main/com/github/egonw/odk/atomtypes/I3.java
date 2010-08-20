@@ -33,6 +33,11 @@ public class I3 implements IAtomType {
 	}
 
 	@Override
+	public short getOxidationState() {
+		return 5;
+	}
+
+	@Override
 	public List<IOrbitalType> getOrbitalTypes() {
 		List<IOrbitalType> orbitals = new ArrayList<IOrbitalType>();
 		orbitals.add(LonePair.getInstance(Sp2.getInstance()));

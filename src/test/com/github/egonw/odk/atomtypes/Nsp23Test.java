@@ -40,6 +40,14 @@ public class Nsp23Test {
 	}
 
 	@Given("createAtomType()")
+	public void testFormalCharge(IAtomType type) {
+		Assert.assertEquals(
+			0,
+			AtomTypeProperties.getFormalCharge(type)
+		);
+	}
+
+	@Given("createAtomType()")
 	public void testName(IAtomType type) {
 		Assert.assertEquals(
 			"N.sp2.3", type.getName()
