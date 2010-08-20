@@ -67,4 +67,9 @@ public class AtomProperties {
 		return overlaps;
 	}
 
+	public static short getFormalCharge(IAtom atom) {
+		short electronCount = (short)getElectronCount(atom);
+		return (short)(atom.getAtomType().getOxidationState() - electronCount);
+	}
+
 }
