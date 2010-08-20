@@ -44,7 +44,7 @@ public class Clminus implements IAtomType {
 
 	@Override
 	public short getOxidationState() {
-		return 3;
+		return 7;
 	}
 
 }
