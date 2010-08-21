@@ -2,6 +2,7 @@ package com.github.egonw.odk.matrix;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import com.github.egonw.odk.interfaces.IAtom;
 
@@ -47,6 +48,11 @@ public class MolecularMatrix implements IMolecularMatrix {
 	@Override
 	public int getDimension() {
 		return atomCount;
+	}
+
+	@Override
+	public Set<IAtom> getAtoms() {
+		return positions.keySet();
 	}
 
 }
