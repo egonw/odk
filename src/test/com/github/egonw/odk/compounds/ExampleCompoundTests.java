@@ -26,6 +26,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses(value={
 	MethaneTest.class,
 	EthaneTest.class,
-	WaterTest.class
+	WaterTest.class,
+	ZeisesSaltTest.class
 })
 public class ExampleCompoundTests {}
