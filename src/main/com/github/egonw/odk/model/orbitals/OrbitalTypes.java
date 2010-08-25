@@ -16,4 +16,15 @@ public class OrbitalTypes {
 		types.add(Sp3.getInstance());
 		return types;
 	}
+
+	public static IOrbitalType getOrbitalType(String name) {
+		List<IOrbitalType> types = getOrbitalTypes();
+		for (IOrbitalType type : types) {
+			if (type.getClass().getSimpleName().equals(name))
+				return type;
+		}
+		throw new IllegalArgumentException(
+			"Unrecognized orbital type name"
+		);
+	}
 }
