@@ -25,7 +25,7 @@ public class Hs implements IAtomType {
 
 	@Override
 	public String getName() {
-		return "H";
+		return "Hs";
 	}
 
 	@Override
