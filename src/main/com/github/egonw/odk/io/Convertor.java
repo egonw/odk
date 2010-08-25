@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.github.egonw.odk.atomtypes.AtomTypes;
 import com.github.egonw.odk.interfaces.IAtom;
 import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IAtomicOrbital;
@@ -16,7 +17,9 @@ import com.github.egonw.odk.model.MoleculeFactory;
 import com.github.egonw.odk.model.orbitals.OrbitalTypes;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class Convertor {
@@ -105,7 +108,27 @@ public class Convertor {
 	}
 
 	public static IMolecule model2Molecule(Model model) {
+		AtomTypes atList = new AtomTypes();
+		ResIterator mols =
+            model.listSubjectsWithProperty(RDF.type, ODK.MOLECULE);
 		MoleculeFactory factory = new MoleculeFactory();
+        if (mols.hasNext()) {
+            Resource rdfMol = mols.next();
+            StmtIterator atoms = rdfMol.listProperties(ODK.HASATOM);
+            while (atoms.hasNext()) {
+                Resource rdfAtom = atoms.nextStatement().getResource();
+                StmtIterator atomTypes = rdfAtom.listProperties(ODK.HASATOMTYPE);
+                if (atomTypes.hasNext()) {
+                	Resource rdfAtomType = atomTypes.nextStatement().getResource();
+                	String rdfAtName = cleanTypeName(rdfAtomType.getLocalName());
+                	if (atList.atomTypes.containsKey(rdfAtName)) {
+                		factory.addAtom(atList.atomTypes.get(rdfAtName));
+                	} else {
+                		System.out.println("HELP, unrecognized AT: " + rdfAtName);
+                	}
+                }
+            }
+        }
         return factory.getImmutable();
 	}
 
