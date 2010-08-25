@@ -11,7 +11,9 @@ import com.github.egonw.odk.interfaces.IAtomType;
 import com.github.egonw.odk.interfaces.IAtomicOrbital;
 import com.github.egonw.odk.interfaces.IElement;
 import com.github.egonw.odk.interfaces.IFilledOrbitalType;
+import com.github.egonw.odk.interfaces.IMolecularOrbital;
 import com.github.egonw.odk.interfaces.IMolecule;
+import com.github.egonw.odk.interfaces.IOrbital;
 import com.github.egonw.odk.interfaces.IOrbitalType;
 import com.github.egonw.odk.model.MoleculeFactory;
 import com.github.egonw.odk.model.orbitals.OrbitalTypes;
@@ -98,6 +100,42 @@ public class Convertor {
             		model.add(orbRes, ODK.HASELECTRONCOUNT, "" + fot.getElectronCount());
             	}
         	}
+
+        }
+    	List<IMolecularOrbital> overlaps = molecule.getOverlaps();
+    	Map<IMolecularOrbital,Integer> moNumbers = new HashMap<IMolecularOrbital,Integer>();
+    	int overlapCount = 0;
+        for (IMolecularOrbital overlap : overlaps) {
+        	System.out.println("Overlap: " + overlap);
+        	overlapCount++;
+        	moNumbers.put(overlap, overlapCount);
+        	Resource ovRes = model.createResource(
+                "http://example.org/overlap" + overlapCount
+            );
+        	model.add(ovRes, RDF.type, ODK.OVERLAP);
+        	model.add(molRes, ODK.HASOVERLAP, ovRes);
+        	List<IOrbital> ovOrbitals = overlap.getOrbitals();
+        	for (IOrbital orbital : ovOrbitals) {
+        		System.out.println(orbital.getClass().getName());
+        		Integer orbNumber = orbNumbers.get(orbital);
+        		if (orbNumber == null) {
+        			// OK, not an atomic orbital
+        			orbNumber = moNumbers.get(orbital);
+        			if (orbNumber == null) {
+        				// OK, the MO is not yet defined
+        				overlapCount++;
+        				orbNumber = Integer.valueOf(overlapCount);
+        				moNumbers.put(overlap, orbNumber);
+        			}
+        			model.add(ovRes, ODK.BINDS, model.createResource(
+            			"http://example.org/overlap" + orbNumber
+            		));
+        		} else {
+        			model.add(ovRes, ODK.BINDS, model.createResource(
+        				"http://example.org/orbital" + orbNumber
+        			));
+        		}
+        	}
         }
 
         return model;
@@ -112,6 +150,8 @@ public class Convertor {
 		ResIterator mols =
             model.listSubjectsWithProperty(RDF.type, ODK.MOLECULE);
 		MoleculeFactory factory = new MoleculeFactory();
+		Map<String,IAtom> odkAtoms = new HashMap<String,IAtom>();
+		Map<String,IOrbital> odkOrbitalsMap = new HashMap<String,IOrbital>();
         if (mols.hasNext()) {
             Resource rdfMol = mols.next();
             StmtIterator atoms = rdfMol.listProperties(ODK.HASATOM);
@@ -122,11 +162,48 @@ public class Convertor {
                 	Resource rdfAtomType = atomTypes.nextStatement().getResource();
                 	String rdfAtName = cleanTypeName(rdfAtomType.getLocalName());
                 	if (atList.atomTypes.containsKey(rdfAtName)) {
-                		factory.addAtom(atList.atomTypes.get(rdfAtName));
+                		odkAtoms.put(rdfAtom.getURI(), factory.addAtom(atList.atomTypes.get(rdfAtName)));
                 	} else {
                 		System.out.println("HELP, unrecognized AT: " + rdfAtName);
                 	}
                 }
+            }
+            StmtIterator overlaps = rdfMol.listProperties(ODK.HASOVERLAP);
+            while (overlaps.hasNext()) {
+                Resource rdfOverlap = overlaps.nextStatement().getResource();
+            	System.out.println(rdfOverlap.getURI());
+                StmtIterator orbitals = rdfOverlap.listProperties(ODK.BINDS);
+                List<IOrbital> odkOrbitals = new ArrayList<IOrbital>();
+                if (orbitals.hasNext()) {
+                	Resource rdfOrbital = orbitals.nextStatement().getResource();
+                	System.out.println(rdfOrbital.getURI());
+                	// OK, first guess: atomic orbital
+                	ResIterator rdfAtoms = model.listResourcesWithProperty(ODK.HASORBITAL, rdfOrbital);
+            		StmtIterator eCounts = rdfOrbital.listProperties(ODK.HASELECTRONCOUNT);
+            		StmtIterator orbTypes = rdfOrbital.listProperties(ODK.HASORBITALTYPE);
+                	if (rdfAtoms.hasNext() && eCounts.hasNext() && orbTypes.hasNext()) {
+                		// bingo
+                		String atomURI = rdfAtoms.next().getURI();
+                		System.out.println("atom: " + atomURI);
+                		IAtom atom = odkAtoms.get(atomURI);
+                		IOrbitalType orbType = OrbitalTypes.getOrbitalType(
+                			orbTypes.next().getResource().getLocalName()
+                		);
+                		int eCount = eCounts.next().getInt();
+                		if (eCount == 0) {
+                			odkOrbitals.add(atom.getFreeEmpty(orbType));
+                		} else if (eCount == 1) {
+                			odkOrbitals.add(atom.getFreeSingleElectron(orbType));
+                		} else if (eCount == 2) {
+                			odkOrbitals.add(atom.getFreeLonePair(orbType));
+                		} else {
+                			System.out.println("HELP: unrecognized number of electrons");
+                		}
+                	} else {
+                		// what now?
+                	}
+                }
+                factory.bind(odkOrbitals.toArray(new IOrbital[0]));
             }
         }
         return factory.getImmutable();

@@ -30,5 +30,7 @@ public class ODK {
     public static final Property HASORBITAL = property("hasOrbital");
     public static final Property HASORBITALTYPE = property("hasOrbitalType");
 	public static final Property HASELECTRONCOUNT = property("hasElectronCount");
+    public static final Property HASOVERLAP = property("hasOverlap");
+    public static final Property BINDS = property("binds");
 
 }
