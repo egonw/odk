@@ -22,8 +22,13 @@ public class ODK {
     public static final Resource ELEMENT = resource("Element");
     public static final Resource ATOMTYPE = resource("AtomType");
     public static final Resource ORBITAL = resource("Orbital");
+    public static final Resource ORBITALTYPE = resource("OrbitalType");
     
     public static final Property HASATOM = property("hasAtom");
+    public static final Property HASATOMTYPE = property("hasAtomType");
+    public static final Property HASELEMENT = property("hasElement");
     public static final Property HASORBITAL = property("hasOrbital");
+    public static final Property HASORBITALTYPE = property("hasOrbitalType");
+	public static final Property HASELECTRONCOUNT = property("hasElectronCount");
 
 }
