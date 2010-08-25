@@ -46,6 +46,9 @@ public class AtomTypes {
         put("B", B.getInstance());
         put("Se3", Se3.getInstance());
         put("Ge", Ge.getInstance());
+        put("Hs", Hs.getInstance());
+        put("Ptsp", Ptsp.getInstance());
+        put("Clminus", Clminus.getInstance());
       }
     };
 

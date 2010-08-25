@@ -142,15 +142,24 @@ public class CreateAtomTypes {
 				);
 			}
 
-			String fileContent = FACTORY_TEMPLATE;
-			fileContent = fileContent.replace("$ATOMTYPES$", atomtypes.toString());
-			FileWriter fileWriter = new FileWriter(new File(
-				"src/main/com/github/egonw/odk/atomtypes/AtomTypes.java"
-			));
-			fileWriter.append(fileContent);
-			fileWriter.close();
 		}
 		
+		// extra types
+		String[] extraTypes = new String[] { "Hs", "Ptsp", "Clminus" };
+		for (String extraType : extraTypes) {
+			atomtypes.append(
+			    "        put(\"" + extraType + "\", " +
+			    extraType + ".getInstance());\n"
+			);
+		}
+		
+		String fileContent = FACTORY_TEMPLATE;
+		fileContent = fileContent.replace("$ATOMTYPES$", atomtypes.toString());
+		FileWriter fileWriter = new FileWriter(new File(
+			"src/main/com/github/egonw/odk/atomtypes/AtomTypes.java"
+		));
+		fileWriter.append(fileContent);
+		fileWriter.close();
 	}
 
 	private static String removeDots(String atomTypeName) {
