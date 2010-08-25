@@ -1,5 +1,8 @@
 package com.github.egonw.odk.compounds;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -16,6 +19,8 @@ import com.github.egonw.odk.elements.Carbon;
 import com.github.egonw.odk.elements.Hydrogen;
 import com.github.egonw.odk.interfaces.IAtom;
 import com.github.egonw.odk.interfaces.IMolecule;
+import com.github.egonw.odk.io.ODKReader;
+import com.github.egonw.odk.io.ODKWriter;
 import com.github.egonw.odk.model.MoleculeFactory;
 import com.github.egonw.odk.model.orbitals.S;
 import com.github.egonw.odk.model.orbitals.Sp3;
@@ -47,6 +52,36 @@ public class MethaneTest {
 
 	@Given("#testMethane(com.github.egonw.odk.model.MoleculeFactory)")
 	public void testMethaneProperties(IMolecule methane) {
+		testProperties(methane);
+	}
+	
+	@Given("#testMethane(com.github.egonw.odk.model.MoleculeFactory)")
+	public String testWrite(IMolecule salt) throws IOException {
+		StringWriter stringWriter = new StringWriter();
+		ODKWriter odkWriter = new ODKWriter(stringWriter);
+		odkWriter.writeMolecule(salt);
+		odkWriter.close();
+		String notation3 = stringWriter.toString();
+		Assert.assertNotNull(notation3);
+		Assert.assertNotSame(0, notation3.length());
+		System.out.println(notation3);
+		return notation3;
+	}
+
+	@Given("#testWrite(com.github.egonw.odk.interfaces.IMolecule)")
+	public IMolecule testRead(String notation3) throws IOException {
+		ODKReader reader = new ODKReader(new StringReader(notation3));
+		IMolecule salt = reader.read();
+		Assert.assertNotNull(salt);
+		return salt;
+	}
+
+	@Given("#testRead(java.lang.String)")
+	public void testRoundtrippedProperties(IMolecule molecule) {
+		testProperties(molecule);
+	}
+
+	public void testProperties(IMolecule methane) {
 		Assert.assertEquals(0, MoleculeProperties.getFormalCharge(methane));
 		List<IAtom> atoms = methane.getAtoms();
 		Assert.assertEquals(5, atoms.size());
